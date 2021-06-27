@@ -1,0 +1,51 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Tabla de datos de residencia profesional}{5}
+\contentsline {section}{\numberline {2}Carta de aceptaci\IeC {\'o}n}{6}
+\contentsline {section}{\numberline {3}Carta de finalizaci\IeC {\'o}n}{7}
+\contentsline {section}{\numberline {4}Introducci\IeC {\'o}n}{8}
+\contentsline {section}{\numberline {5}Justificaci\IeC {\'o}n}{9}
+\contentsline {section}{\numberline {6}Objetivos}{10}
+\contentsline {subsection}{\numberline {6.1}Objetivo General}{10}
+\contentsline {subsection}{\numberline {6.2}Objetivos espec\IeC {\'\i }ficos}{10}
+\contentsline {section}{\numberline {7}Caracterizaci\IeC {\'o}n del lugar de trabajo}{11}
+\contentsline {section}{\numberline {8}Alcances y limitaciones de proyecto}{12}
+\contentsline {section}{\numberline {9}Fundamento te\IeC {\'o}rico}{13}
+\contentsline {subsection}{\numberline {9.1}Sistemas embebidos}{13}
+\contentsline {subsubsection}{\numberline {9.1.1}Componentes de un sistema embebido}{13}
+\contentsline {subsubsection}{\numberline {9.1.2}Arduino}{15}
+\contentsline {subsubsection}{\numberline {9.1.3}Raspberry Pi}{16}
+\contentsline {subsubsection}{\numberline {9.1.4}ESP32}{18}
+\contentsline {subsection}{\numberline {9.2}Sensores Industriales}{19}
+\contentsline {subsubsection}{\numberline {9.2.1}Encoder}{19}
+\contentsline {paragraph}{\numberline {9.2.1.1}Funcionamiento}{19}
+\contentsline {paragraph}{\numberline {9.2.1.2}Tipos de encoder}{20}
+\contentsline {subsubsection}{\numberline {9.2.2}Sensor de par y torsi\IeC {\'o}n}{21}
+\contentsline {paragraph}{\numberline {9.2.2.1}Sensores de reacci\IeC {\'o}n}{22}
+\contentsline {paragraph}{\numberline {9.2.2.2}Sensores de torque rotatorios}{22}
+\contentsline {paragraph}{\numberline {9.2.2.3}Rotatorios de contacto}{23}
+\contentsline {paragraph}{\numberline {9.2.2.4}Rotatorios de no contacto}{23}
+\contentsline {subsection}{\numberline {9.3}Protocolos de comunicaci\IeC {\'o}n industrial}{24}
+\contentsline {subsubsection}{\numberline {9.3.1}DeviceNet}{26}
+\contentsline {subsubsection}{\numberline {9.3.2}Modbus TCP/IP}{26}
+\contentsline {subsubsection}{\numberline {9.3.3}PROFINET}{27}
+\contentsline {subsubsection}{\numberline {9.3.4}PROFIBUS}{28}
+\contentsline {subsubsection}{\numberline {9.3.5}EtherCAT}{29}
+\contentsline {subsection}{\numberline {9.4}Interfaz gr\IeC {\'a}fica de usuario}{30}
+\contentsline {subsubsection}{\numberline {9.4.1}HMI (Human Machine Interface)}{30}
+\contentsline {paragraph}{\numberline {9.4.1.1}Usos de la HMI}{30}
+\contentsline {paragraph}{\numberline {9.4.1.2}HMI y SCADA}{31}
+\contentsline {paragraph}{\numberline {9.4.1.3}Ventajas de la HMI}{31}
+\contentsline {paragraph}{\numberline {9.4.1.4}El futuro de la HMI}{32}
+\contentsline {subsection}{\numberline {9.5}Servomotores Industriales}{33}
+\contentsline {paragraph}{\numberline {9.5.0.5}Usos del servomotor}{33}
+\contentsline {paragraph}{\numberline {9.5.0.6}Funcionamiento}{34}
+\contentsline {paragraph}{\numberline {9.5.0.7}Componentes de un servomotor}{34}
+\contentsline {paragraph}{\numberline {9.5.0.8}Ventajas y desventajas de servomotores}{35}
+\contentsline {paragraph}{\numberline {9.5.0.9}Aplicaciones}{36}
+\contentsline {section}{\numberline {10}Desarrollo de actividades}{38}
+\contentsline {subsection}{\numberline {10.1}Cronograma de Actividades}{38}
+\contentsline {subsection}{\numberline {10.2}Definici\IeC {\'o}n de proyecto}{39}
+\contentsline {subsubsection}{\numberline {10.2.1}Modo Motor}{39}
+\contentsline {subsubsection}{\numberline {10.2.2}Modo Generador}{40}
+\contentsline {subsubsection}{\numberline {10.2.3}Primeras ideas}{40}
+\contentsline {subsection}{\numberline {10.3}Reconocimiento de dispositivos}{42}
