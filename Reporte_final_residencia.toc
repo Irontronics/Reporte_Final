@@ -25,27 +25,32 @@
 \contentsline {paragraph}{\numberline {9.2.2.3}Rotatorios de contacto}{23}
 \contentsline {paragraph}{\numberline {9.2.2.4}Rotatorios de no contacto}{23}
 \contentsline {subsection}{\numberline {9.3}Protocolos de comunicaci\IeC {\'o}n industrial}{24}
-\contentsline {subsubsection}{\numberline {9.3.1}DeviceNet}{26}
-\contentsline {subsubsection}{\numberline {9.3.2}Modbus TCP/IP}{26}
-\contentsline {subsubsection}{\numberline {9.3.3}PROFINET}{27}
-\contentsline {subsubsection}{\numberline {9.3.4}PROFIBUS}{28}
-\contentsline {subsubsection}{\numberline {9.3.5}EtherCAT}{29}
-\contentsline {subsection}{\numberline {9.4}Interfaz gr\IeC {\'a}fica de usuario}{30}
-\contentsline {subsubsection}{\numberline {9.4.1}HMI (Human Machine Interface)}{30}
-\contentsline {paragraph}{\numberline {9.4.1.1}Usos de la HMI}{30}
-\contentsline {paragraph}{\numberline {9.4.1.2}HMI y SCADA}{31}
-\contentsline {paragraph}{\numberline {9.4.1.3}Ventajas de la HMI}{31}
-\contentsline {paragraph}{\numberline {9.4.1.4}El futuro de la HMI}{32}
-\contentsline {subsection}{\numberline {9.5}Servomotores Industriales}{33}
-\contentsline {paragraph}{\numberline {9.5.0.5}Usos del servomotor}{33}
-\contentsline {paragraph}{\numberline {9.5.0.6}Funcionamiento}{34}
-\contentsline {paragraph}{\numberline {9.5.0.7}Componentes de un servomotor}{34}
-\contentsline {paragraph}{\numberline {9.5.0.8}Ventajas y desventajas de servomotores}{35}
-\contentsline {paragraph}{\numberline {9.5.0.9}Aplicaciones}{36}
-\contentsline {section}{\numberline {10}Desarrollo de actividades}{38}
-\contentsline {subsection}{\numberline {10.1}Cronograma de Actividades}{38}
-\contentsline {subsection}{\numberline {10.2}Definici\IeC {\'o}n de proyecto}{39}
-\contentsline {subsubsection}{\numberline {10.2.1}Modo Motor}{39}
-\contentsline {subsubsection}{\numberline {10.2.2}Modo Generador}{40}
-\contentsline {subsubsection}{\numberline {10.2.3}Primeras ideas}{40}
-\contentsline {subsection}{\numberline {10.3}Reconocimiento de dispositivos}{42}
+\contentsline {subsubsection}{\numberline {9.3.1}DeviceNet}{25}
+\contentsline {subsubsection}{\numberline {9.3.2}Modbus TCP/IP}{25}
+\contentsline {subsubsection}{\numberline {9.3.3}PROFINET}{26}
+\contentsline {subsubsection}{\numberline {9.3.4}PROFIBUS}{27}
+\contentsline {subsubsection}{\numberline {9.3.5}EtherCAT}{28}
+\contentsline {subsection}{\numberline {9.4}Interfaz gr\IeC {\'a}fica de usuario}{29}
+\contentsline {subsubsection}{\numberline {9.4.1}HMI (Human Machine Interface)}{29}
+\contentsline {paragraph}{\numberline {9.4.1.1}Usos de la HMI}{29}
+\contentsline {paragraph}{\numberline {9.4.1.2}HMI y SCADA}{30}
+\contentsline {paragraph}{\numberline {9.4.1.3}Ventajas de la HMI}{30}
+\contentsline {paragraph}{\numberline {9.4.1.4}El futuro de la HMI}{31}
+\contentsline {subsection}{\numberline {9.5}Servomotores Industriales}{32}
+\contentsline {paragraph}{\numberline {9.5.0.5}Usos del servomotor}{32}
+\contentsline {paragraph}{\numberline {9.5.0.6}Funcionamiento}{32}
+\contentsline {paragraph}{\numberline {9.5.0.7}Componentes de un servomotor}{33}
+\contentsline {paragraph}{\numberline {9.5.0.8}Ventajas y desventajas de servomotores}{34}
+\contentsline {paragraph}{\numberline {9.5.0.9}Aplicaciones}{35}
+\contentsline {section}{\numberline {10} Desarrollo de actividades}{36}
+\contentsline {subsection}{\numberline {10.1}Cronograma de Actividades}{36}
+\contentsline {subsection}{\numberline {10.2}Definici\IeC {\'o}n de proyecto}{37}
+\contentsline {subsubsection}{\numberline {10.2.1}Modo Motor}{37}
+\contentsline {subsubsection}{\numberline {10.2.2}Modo Generador}{38}
+\contentsline {subsubsection}{\numberline {10.2.3}Primeras ideas}{38}
+\contentsline {subsection}{\numberline {10.3}Reconocimiento de dispositivos}{40}
+\contentsline {subsubsection}{\numberline {10.3.1}Kollmorgen Servodrive y Servomotor}{40}
+\contentsline {subsubsection}{\numberline {10.3.2}Sensor de velocidad y torque Futek }{42}
+\contentsline {paragraph}{\numberline {10.3.2.1}Dato de velocidad}{43}
+\contentsline {paragraph}{\numberline {10.3.2.2}Dato de torque}{44}
+\contentsline {subsubsection}{\numberline {10.3.3}Freno industrial Warner Electric }{44}

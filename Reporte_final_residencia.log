@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2020.7.7)  26 JUN 2021 22:08
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2020.7.7)  5 JUL 2021 00:05
 entering extended mode
 **Reporte_final_residencia.tex
 
@@ -900,11 +900,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 420--421
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 432--433
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 434--435
 
  []
@@ -929,12 +924,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 442--443
 
  []
 
-[24] [25]
+[24]
 Underfull \hbox (badness 10000) in paragraph at lines 446--447
 
  []
 
-<DeviceNet_Logo.jpg, id=123, 185.19188pt x 35.38219pt>
+<DeviceNet_Logo.jpg, id=120, 185.19188pt x 35.38219pt>
 File: DeviceNet_Logo.jpg Graphic file (type jpg)
 
 <use DeviceNet_Logo.jpg>
@@ -945,12 +940,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 455--456
 
  []
 
-<red_modbus.jpg, id=124, 337.26pt x 231.86626pt>
+<red_modbus.jpg, id=121, 337.26pt x 231.86626pt>
 File: red_modbus.jpg Graphic file (type jpg)
  <use red_modbus.jpg>
 Package pdftex.def Info: red_modbus.jpg used on input line 459.
 (pdftex.def)             Requested size: 300.16045pt x 206.3603pt.
- [26 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/DeviceNet_
+ [25 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/DeviceNet_
 Logo.jpg> <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/red_m
 odbus.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 466--468
@@ -972,12 +967,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 478--479
 
  []
 
-<profinet.png, id=128, 357.335pt x 141.52875pt>
+<profinet.png, id=125, 357.335pt x 141.52875pt>
 File: profinet.png Graphic file (type png)
  <use profinet.png>
 Package pdftex.def Info: profinet.png used on input line 482.
 (pdftex.def)             Requested size: 210.82582pt x 83.50122pt.
- [27 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/profinet.p
+ [26 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/profinet.p
 ng>]
 Underfull \hbox (badness 10000) in paragraph at lines 487--489
 
@@ -993,12 +988,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 492--493
 
  []
 
-<profibus.png, id=133, 680.5425pt x 270.00874pt>
+<profibus.png, id=130, 680.5425pt x 270.00874pt>
 File: profibus.png Graphic file (type png)
  <use profibus.png>
 Package pdftex.def Info: profibus.png used on input line 496.
 (pdftex.def)             Requested size: 170.13521pt x 67.50201pt.
- [28 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/profibus.p
+ [27 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/profibus.p
 ng>]
 Underfull \hbox (badness 10000) in paragraph at lines 501--504
 
@@ -1019,12 +1014,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 507--508
 
  []
 
-<ethercat.png, id=139, 803.0pt x 180.675pt>
+<ethercat.png, id=135, 803.0pt x 180.675pt>
 File: ethercat.png Graphic file (type png)
  <use ethercat.png>
 Package pdftex.def Info: ethercat.png used on input line 511.
 (pdftex.def)             Requested size: 200.74951pt x 45.16862pt.
- [29 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/ethercat.p
+ [28 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/ethercat.p
 ng>]
 Underfull \hbox (badness 10000) in paragraph at lines 516--517
 
@@ -1060,7 +1055,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 528--529
 
  []
 
-[30]
+[29]
 Underfull \hbox (badness 10000) in paragraph at lines 533--534
 
  []
@@ -1090,12 +1085,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 544--545
 
  []
 
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 557--558
-
- []
-
-
+[30]
 Underfull \hbox (badness 10000) in paragraph at lines 559--561
 
  []
@@ -1105,17 +1095,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 562--563
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 564--565
-
- []
-
-<HMI.jpg, id=150, 180.05554pt x 177.57771pt>
+<HMI.jpg, id=147, 180.05554pt x 177.57771pt>
 File: HMI.jpg Graphic file (type jpg)
  <use HMI.jpg>
 Package pdftex.def Info: HMI.jpg used on input line 568.
-(pdftex.def)             Requested size: 234.07217pt x 230.85098pt.
- [32]
+(pdftex.def)             Requested size: 198.0617pt x 195.33607pt.
+ [31 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/HMI.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 574--575
 
  []
@@ -1150,7 +1135,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 587--588
 
  []
 
-[33 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/HMI.jpg>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 589--590
 
  []
@@ -1170,7 +1155,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 596--597
 
  []
 
-
+[32]
 Underfull \hbox (badness 10000) in paragraph at lines 598--599
 
  []
@@ -1190,7 +1175,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 604--605
 
  []
 
-<SERVO.png, id=157, 442.65375pt x 147.55125pt>
+<SERVO.png, id=154, 442.65375pt x 147.55125pt>
 File: SERVO.png Graphic file (type png)
  <use SERVO.png>
 Package pdftex.def Info: SERVO.png used on input line 608.
@@ -1210,11 +1195,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 617--618
 
  []
 
-[34]
+
 Underfull \hbox (badness 10000) in paragraph at lines 619--620
 
  []
 
+[33 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/SERVO.png>]
 
 Underfull \hbox (badness 10000) in paragraph at lines 621--622
 
@@ -1230,7 +1216,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 625--626
 
  []
 
-<PARTES_SERVO.png, id=162, 421.575pt x 237.13594pt>
+<PARTES_SERVO.png, id=158, 421.575pt x 237.13594pt>
 File: PARTES_SERVO.png Graphic file (type png)
  <use PARTES_SERVO.png>
 Package pdftex.def Info: PARTES_SERVO.png used on input line 629.
@@ -1255,13 +1241,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 637--638
 
  []
 
-[35 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/SERVO.png>]
 
 Underfull \hbox (badness 10000) in paragraph at lines 639--640
 
  []
 
-
+[34 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/PARTES_SERV
+O.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 646--648
 
  []
@@ -1271,15 +1257,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 649--650
 
  []
 
-[36 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/PARTES_SERV
-O.png>] <servomotores.jpg, id=169, 279.0425pt x 181.67876pt>
+<servomotores.jpg, id=163, 279.0425pt x 181.67876pt>
 File: servomotores.jpg Graphic file (type jpg)
-
-<use servomotores.jpg>
+ <use servomotores.jpg>
 Package pdftex.def Info: servomotores.jpg used on input line 663.
 (pdftex.def)             Requested size: 195.3284pt x 127.17424pt.
- [37 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/servomotor
-es.jpg>]
+
+[35 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/servomotore
+s.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 668--669
 
  []
@@ -1299,7 +1284,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 670--671
 
  []
 
-<cronograma.png, id=173, 641.30116pt x 270.06158pt>
+<cronograma.png, id=167, 641.30116pt x 270.06158pt>
 File: cronograma.png Graphic file (type png)
  <use cronograma.png>
 Package pdftex.def Info: cronograma.png used on input line 674.
@@ -1309,7 +1294,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 679--680
 
  []
 
-[38 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/cronograma.
+[36 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/cronograma.
 png>]
 Underfull \hbox (badness 10000) in paragraph at lines 682--683
 
@@ -1320,7 +1305,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 686--687
 
  []
 
-<MODO_MOTOR.jpg, id=178, 552.56438pt x 182.18062pt>
+<MODO_MOTOR.jpg, id=172, 552.56438pt x 182.18062pt>
 File: MODO_MOTOR.jpg Graphic file (type jpg)
  <use MODO_MOTOR.jpg>
 Package pdftex.def Info: MODO_MOTOR.jpg used on input line 691.
@@ -1340,7 +1325,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 701--702
 
  []
 
-[39 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/MODO_MOTOR.
+[37 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/MODO_MOTOR.
 jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 704--705
 
@@ -1351,7 +1336,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 706--707
 
  []
 
-<Modo_Generador.jpg, id=182, 678.28406pt x 176.91093pt>
+<Modo_Generador.jpg, id=176, 678.28406pt x 176.91093pt>
 File: Modo_Generador.jpg Graphic file (type jpg)
 
 <use Modo_Generador.jpg>
@@ -1387,7 +1372,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 725--726
 
  []
 
-[40 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/Modo_Genera
+[38 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/Modo_Genera
 dor.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 727--728
 
@@ -1413,32 +1398,246 @@ Underfull \hbox (badness 10000) in paragraph at lines 750--751
 
  []
 
-[41] [42]
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 753--754
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 761--762
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 763--764
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 766--767
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 768--769
+
+ []
+
+<kollmorge_devices.jpg, id=183, 624.83438pt x 319.1925pt>
+File: kollmorge_devices.jpg Graphic file (type jpg)
+
+<use kollmorge_devices.jpg>
+Package pdftex.def Info: kollmorge_devices.jpg used on input line 772.
+(pdftex.def)             Requested size: 343.65997pt x 175.55641pt.
+ [40 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/kollmorge_
+devices.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 776--777
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 778--779
+
+ []
+
+<WorkBench_0.png, id=188, 585.68813pt x 464.4853pt>
+File: WorkBench_0.png Graphic file (type png)
+ <use WorkBench_0.png>
+Package pdftex.def Info: WorkBench_0.png used on input line 782.
+(pdftex.def)             Requested size: 322.12946pt x 255.46771pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 786--787
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 788--789
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 790--791
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 792--793
+
+ []
+
+[41 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/WorkBench_0
+.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 795--796
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 797--798
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 804--805
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 806--807
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 809--810
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 811--812
+
+ []
+
+<TRS605.jpg, id=193, 280.04625pt x 411.03563pt>
+File: TRS605.jpg Graphic file (type jpg)
+ <use TRS605.jpg>
+Package pdftex.def Info: TRS605.jpg used on input line 815.
+(pdftex.def)             Requested size: 154.0259pt x 226.07028pt.
+ [42 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/TRS605.jpg
+>]
+Underfull \hbox (badness 10000) in paragraph at lines 819--820
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 821--822
+
+ []
+
+<dato_velocidad_pin.jpg, id=197, 295.85532pt x 161.10187pt>
+File: dato_velocidad_pin.jpg Graphic file (type jpg)
+
+<use dato_velocidad_pin.jpg>
+Package pdftex.def Info: dato_velocidad_pin.jpg used on input line 825.
+(pdftex.def)             Requested size: 171.59619pt x 93.43915pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 837--838
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 839--840
+
+ []
+
+<signals_encoder.png, id=198, 513.92pt x 279.0425pt>
+File: signals_encoder.png Graphic file (type png)
+ <use signals_encoder.png>
+Package pdftex.def Info: signals_encoder.png used on input line 845.
+(pdftex.def)             Requested size: 205.56435pt x 111.615pt.
+
+[43 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/dato_veloci
+dad_pin.jpg> <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/si
+gnals_encoder.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 849--850
+
+ []
+
+<dato_torque_pin.jpg, id=202, 317.68687pt x 176.15813pt>
+File: dato_torque_pin.jpg Graphic file (type jpg)
+
+<use dato_torque_pin.jpg>
+Package pdftex.def Info: dato_torque_pin.jpg used on input line 854.
+(pdftex.def)             Requested size: 184.2585pt x 102.17177pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 866--867
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 869--870
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 871--872
+
+ []
+
+[44 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/dato_torque
+_pin.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 880--881
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 882--883
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 884--885
+
+ []
+
+<warner_devices.jpg, id=206, 2992.42969pt x 1477.01813pt>
+File: warner_devices.jpg Graphic file (type jpg)
+
+<use warner_devices.jpg>
+Package pdftex.def Info: warner_devices.jpg used on input line 889.
+(pdftex.def)             Requested size: 389.02953pt x 192.01909pt.
+ [45 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/warner_dev
+ices.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 893--894
+
+ []
+
+<modos_freno.png, id=210, 254.45062pt x 301.125pt>
+File: modos_freno.png Graphic file (type png)
+ <use modos_freno.png>
+Package pdftex.def Info: modos_freno.png used on input line 897.
+(pdftex.def)             Requested size: 175.5711pt x 207.77646pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 910--911
+
+ []
+
+[46 <C:/Users/Miguel Àngel Pèrez/Desktop/Reporte final Residencia/modos_freno
+.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 915--916
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 925--926
+
+ []
+
+[47]
 ("C:\Users\Miguel Àngel Pèrez\Desktop\Reporte final Residencia\Reporte_final_
 residencia.aux") ) 
 Here is how much of TeX's memory you used:
- 2496 strings out of 493921
- 31983 string characters out of 3148842
+ 2541 strings out of 493921
+ 32898 string characters out of 3148842
  95510 words of memory out of 3000000
- 5742 multiletter control sequences out of 15000+200000
- 12378 words of font info for 31 fonts, out of 3000000 for 9000
+ 5778 multiletter control sequences out of 15000+200000
+ 13053 words of font info for 32 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  27i,10n,32p,992b,311s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Miguel Àngel Pèrez\AppData\Local\MiKTeX\2.9\font
-s\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\Miguel Àngel Pèrez\AppD
-ata\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\
+s\pk\ljfour\jknappen\ec\dpi600\eccc1200.pk> <C:\Users\Miguel Àngel Pèrez\AppD
+ata\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\
 Miguel Àngel Pèrez\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi60
-0\ecbx1728.pk> <C:\Users\Miguel Àngel Pèrez\AppData\Local\MiKTeX\2.9\fonts\pk
-\ljfour\jknappen\ec\dpi600\ecti1200.pk> <C:\Users\Miguel Àngel Pèrez\AppData\
-Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\Migu
+0\ecbx1200.pk> <C:\Users\Miguel Àngel Pèrez\AppData\Local\MiKTeX\2.9\fonts\pk
+\ljfour\jknappen\ec\dpi600\ecbx1728.pk> <C:\Users\Miguel Àngel Pèrez\AppData\
+Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk> <C:\Users\Migu
 el Àngel Pèrez\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ec
-xc1200.pk><C:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:
-/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files
-/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MikTex/font
-s/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on Reporte_final_residencia.pdf (45 pages, 3925993 bytes).
+rm1200.pk> <C:\Users\Miguel Àngel Pèrez\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
+our\jknappen\ec\dpi600\ecxc1200.pk><C:/Program Files/MikTex/fonts/type1/public/
+amsfonts/cm/cmr12.pfb><C:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/c
+mr8.pfb><C:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/
+Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on Reporte_final_residencia.pdf (50 pages, 4763191 bytes).
 PDF statistics:
- 500 PDF objects out of 1000 (max. 8388607)
+ 546 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 171 words of extra memory for PDF output out of 10000 (max. 10000000)
 
