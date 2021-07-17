@@ -18,25 +18,26 @@
 
 \begin{center} %logo tecmm zapopan 
 \begin{figure}[htbp]
-\hspace*{2.0cm} 
-\includegraphics[scale=1.99]{Tec_logo2}
+\hspace*{1.8cm} 
+\includegraphics[scale=0.39]{Tec_logo}
 \end{figure}
 
 %datos de portada 
  \hspace{17mm}\textbf{\textsc{REPORTE FINAL DE RESIDENCIAS PROFESIONALES \newline
- Junio 2021}}\\[10mm]
- \rule{\linewidth}{1.0mm} 
- \newline
- \uppercase{\\ Miguel ángel pérez bautista }\\[4.5mm]
- \uppercase{Integración de un sistema de monitoreo y control de un banco de pruebas de máquinas eléctricas}\\[4.5mm]
- \uppercase{Coordinación de ingeniería en electrónica}\\[4.5mm]
-  \uppercase{Instituto Tecnológico José Mario Molina Campus Zapopan}\\[4.5mm]
- \rule{\linewidth}{1.0mm}
+ Julio 2021}}\\[10mm]
+% \rule{\linewidth}{1.0mm} 
+% \newline
+  Miguel Ángel Pérez Bautista \\[4.5mm]
+ Integración de un sistema de monitoreo y control de un banco de pruebas de máquinas eléctricas\\[4.5mm]
+ Coordinación de ingeniería en electrónica\\[4.5mm]
+ % Instituto Tecnológico José Mario Molina Campus Zapopan\\[4.5mm]
+% \rule{\linewidth}{1.0mm}
  \vspace{5mm}
- \uppercase{\\ \textit{Asesoramiento de proyecto:}}\\[4.5mm]
- \uppercase{   Ing. Jesús Ramón Sosa Beltrán}\\[5mm]
- \uppercase{Dr. Noé Villa Villaseñor}\\[5mm]
-
+  %\textit{Asesoramiento de proyecto:}\\[4.5mm]
+\textsl{Asesor interno: }     Ing. Jesús Ramón Sosa Beltrán\\[5mm]
+\textsl{Asesor externo: } Dr. Noé Villa Villaseñor\\[5mm]
+ \vspace{8mm}
+\hspace*{1.0cm} Camino Arenero No. 1101 Col. El Bajío 45019 Zapopan Jalisco, México.
 \end{center}
 \end{titlepage} %fin de titulo 
 \newpage %se agrega nueva estructura
@@ -775,7 +776,7 @@ Con lo anteriormente dicho, se observa que nuestro objetivo es el estudiar el se
 \newpage
 Nuestro objetivo principal será el conocer el servodrive, por lo tanto se realizó un estudio del manual de usuario propio del servodrive Kollmorgen AKD-P01206-NBEC-0000 para controlar dispositivo servomotor Kollmorgen AKM65K-ACCNR-00. \\ 
 
-En primer instancia la manera de poder realizar movimientos con el servomotor, obtener datos propios del servodrive y servomotor es dando uso al software que el fabricante proporciona, este sofware es llamado "Kollmorgen Workench" \\ 
+En primer instancia la manera de poder realizar movimientos con el servomotor, obtener datos propios del servodrive y servomotor es dando uso al software que el fabricante proporciona, este sofware es llamado "Kollmorgen WorkBench" \\ 
 
 \begin{figure}[htbp]
 \hspace*{2.5cm} 
@@ -792,7 +793,7 @@ Este software fue la parte inicial para conocer y aprender como se generan movim
 Para poder dar uso a este software y controlar los dispositivos Kollmorgen solamente se debe de dar uso a una comunicación ethernet de computadora a servodrive, el programa automáticamente reconoce el dispositivo a través de su IP definida y se abre el software para dar inicio a la configuración de perfiles de movimiento. \\ 
 
 \newpage
-Una vez que dominó como configurar diferentes movimientos, se comenzó con la investigación sobre que tipo de comunicación (bus de campo) utilizar para el proyecto. \\ 
+Una vez que se dominó como configurar diferentes movimientos, se comenzó con la investigación sobre que tipo de comunicación (bus de campo) utilizar para el proyecto. \\ 
 
 El servodrive se puede comunicar a través de algún  bus de campo tales como: \\
 \begin{itemize}
@@ -923,5 +924,195 @@ El sistema de control que se debe de utilizar entonces, debe de soportar lo sigu
 \end{itemize} 
 
 Por lo tanto, este dato es lo mínimo que se requiere para el sistema de control, que será analizado en la siguiente sección. \\ 
+
+\subsection{Propuestas de controlador}
+Para la elección del controlador del proyecto, se tienen los siguientes dispositivos posibles a utilizar: \\ 
+
+\begin{itemize}
+\item \textit{Raspberry Pi 3B}
+\item \textit{Arduino UNO}
+\end{itemize}
+
+\subsubsection{Raspberry Pi}
+La raspberry Pi como definición es una mini computadora embebida con un procesador Broadcom BCM2837B0.\\
+
+Este sistema embebido es muy utilizado en proyectos orientados a la mecatrónica e informática, lo que hace interesante una raspberry es que cuenta con un procesador, el cual a este se le carga una imagen de algún sistema operativo, sea Windows, o alguna distribuición de Linux. Logrando así tener un recurso adicional para proyectos orientados a la mecatrónica. \\ 
+
+Teniendo el recurso de tener un sistema operativo en la propia tarjeta embebida, se pueden desarrollar proyectos mecatrónicos más robustos que cuando se usa un microcontrolador, puesto que con el sistema operativo o mejor dicho con ayuda del procesador, se pueden crear proyectos donde se den uso a los pines GPIO de la raspberry, se tome lectura de sus entradas y salidas, y que además los datos sea almacenados en una nube directamente. \\ 
+
+Teniendo un sistema operativo en el proyecto, se abren muchas posibilidades de continuar con el desarrollo, incluso involucrando tecnologías IoT. \\ 
+
+\newpage
+
+Para el proyecto de residencia se da como propuesta usar Raspberry Pi como controlador del proyecto, ya que la Raspberry tiene la capacidad de soportar comunicación EtherCat y Modbus, ya que la tarjeta tiene un slot Ethernet embebida.\\ 
+
+Se pretendía usar una plataforma llamada Codesys el cual es una plataforma donde la Raspberry la podemos controlar como si fuera un PLC. \\ 
+
+Al utilizar Codesys, se podría cargar la configuración propia de una comunicación Modbus o EtherCat que el servodrive Kollmorgen soporta y así poder comunicarnos con la tarjeta de control.\\ 
+
+Posterior a ello, la configuración de los espacios de memoria (registros de configuración) Kollmorgen pudieran haber sido de manera más rápida, ya que se encontró el archivo de configuración GSD del servodrive para cargarlo a Codesys.\\
+
+Además otra ventaja de usar Raspberry sería su capacidad de correr multitareas o como se le conoce en informática "multithreading" para tener la ventaja de correr dos o tres tareas al mismo tiempo sin afectar el proceso de ejecución del programa. \\ 
+
+Pero una desventaja que se observó con esta propuesta es que para utilizar algunas funciones requeridas para el proyecto por parte de Codesys, entraba en juego una licencia de pago para poder usar esas características, por lo cual la propuesta quedó por un lado. \\
+
+Pero sin duda alguna, trabajar con Raspberry Pi bajo la plataforma de Codesys se pudieran desarrollar proyectos muy interesantes. \\
+
+\begin{figure}[htbp]
+\hspace*{4.8cm} 
+\includegraphics[scale=0.49]{bloq_diagram}
+\caption{Red de comunicación Raspberry Pi}
+\end{figure}
+  
+\subsubsection{Arduino}
+El arduino Uno como se vio en la parte de teoría, es un sistema embebido el cual cuenta con un microcontrolador Atmega328p AVR de 8 bits, el arduino funciona de manera excelente para proyectos de pequeña escala el cual el fabricante indica que es una tarjeta de enseñanza para la  inicialización al mundo de la programación de microcontroladores. \\ 
+
+En la mayoría de universidades, el arduino forma parte de la enseñanza en asignaturas como "programación de microcontroladores", "programación de sistemas embebidos", entre otros. \\
+
+Para el proyecto de residencia se toma en cuenta la capacidad del arduino uno para utilizarlo como controlador general del banco de pruebas a máquinas eléctricas, únicamente se debe de contemplar que cumpla con los requisitos mínimos que los dispositivos del banco de pruebas requieren. \\
+
+Por lo tanto se comenzó con la investigación de como realizar una comunicación EtherCat o Modbus para poder enlazar la comunicación de Arduino a Servodrive bajo alguno de estos dos protocolos de comunicación. \\ 
+
+Se comenzó con la investigación de EtherCat, si era posible realizar ese tipo de protocolo de comunicación en arduino Uno, el cual la información que se encontró no estaba del todo clara de como realizar una comunicación bajo este protocolo, por lo cual se decide por investigar con más profundidad la comunicación Modbus TCP/IP en arduino. \\ 
+
+En la etapa de investigación se encontró un curso que ayudó bastante para observar que el arduino puede soportar comunicación Modbus TCP/IP, este curso se encuentra en la página Udemy.com, el nombre del curso es \textit{" How to program an Arduino as a Modbus TCP/IP Client and Server"} curso realizado por el instructor Emile Ackbarali. \\
+
+Con el anterior curso, logré realizar pruebas de comunicación Modbus TCP/IP entre Arduino UNO y PC, usando un simulador de interpréte Modbus, pude observar la comunicación y la manera de interactuar escribiendo y leyendo registros de modbus a través de arduino, siendo este un cliente en la comunicación y la computadora un servidor. \\
+
+Con base a la experiencia anterior, se encuentra una manera eficiente para establecer la comunicación al servodrive Kollmorgen, únicamente se tendría que revisar los registros involucrados para la configuración correcta del servodrive y hacer pruebas de lectura/escritura, esta etapa se verá más adelante, por el momento se llega a una solución para establecer la comunicación Modbus TCP/IP desde el arduino funcionado como cliente. \\
+
+\newpage
+
+Cabe mencionar que el arduino no tiene slot ethernet, por lo tanto para realizar esta comunicación se dió uso al \textit{ethernet shield  for arduino} para darle la capacidad al arduino.\\ 
+
+\begin{figure}[htbp]
+\hspace*{4.2cm} 
+\includegraphics[scale=0.39]{Arduino_ethernet}
+\caption{Arduino Uno con Arduino Ethernet Shield}
+\end{figure}
+
+Además del shield, se dieron uso a las siguientes librerias para realizar la comunicación Modbus, las cuales fueron:\\
+
+\begin{itemize}
+\item \textit{ModbusTCP library for the Arduino} 
+\item \textit{Ethernet library}
+\end{itemize}
+
+Las anteriores librerías son de uso libre para proyectos. \\ 
+
+Una vez concluido de que el arduino puede mantener una comunicación modbus, se comienza a revisar los demás requisitos para los otros dipositivos del banco de pruebas. \\
+
+Para poder controlar el freno industrial Warner Electric, se necesitan salidas digitales del controlador, cosa que el arduino tiene. \\
+
+Para el sensor Futek TRS605, para leer el dato de velocidad se necesita pines de interrupción, cosa que el propio microcontrolador del arduino soporta. \\
+
+Por el lado del dato del torque, es una señal analógica por lo cual el Arduino tiene pines dedicados para señales analógicas. \\
+
+Al final es más que evidente que el arduino ha cumplido con los requisitos para ser el controlador del proyecto de residencia y poder controlar y leer los dispositivos del banco de pruebas. \\ 
+
+
+\newpage
+Por último, se revisan las capacidades de memoria de las diferentes versiones de tarjetas arduino: 
+
+ \begin{figure}[htbp]
+\hspace*{2.1cm} 
+\includegraphics[scale=0.89]{memoria_arduino}
+\caption{Comparativa de capacidad de memoria arduino}
+\end{figure}
+
+Con base a la anterior comparativa, se observa una significante limitación en la memoria del arduino Uno, tanto en la memoria Flash como en la memoria RAM. \\
+
+Como recordatorio, la memoria Flash es donde se almacena el programa (código) del control, y la memoria RAM es la memoria donde se almacenan datos/variables al ejecutar el programa de control. \\ 
+
+Con la limitada capacidad de memoria del Arduino Uno, se opta por elegir el Arduino Mega como el controlador general del proyecto, dando así la oportunidad de que el microcontrolador Atmega2560 sea el encargado de llevar el control del proceso.\\ 
+
+ \begin{figure}[htbp]
+\hspace*{3.8cm} 
+\includegraphics[scale=2.13]{arduino_mega_ethernet}
+\caption{Arduino Mega junto con Ethernet shield for arduino}
+\end{figure}
+
+\newpage
+
+Al revisar la documentación técnica del encoder Futek TRS605 se observa que para la obtención del dato del torque nos la proporciona en una señal analógica diferencial, esto quiere decir que nos proporciona dos señales analógicas donde una tiene un voltaje positivo y otra tiene un voltaje negativo. \\ 
+
+Esto representa un problema para el microcontrolador de Arduino Mega, en este caso el Atmega2560 ya que sus pines analógicos que tiene son referenciados a tierra, por lo tanto debe de ser un voltaje positivo, y no un voltaje negativo.\\
+
+\begin{figure}[htbp]
+\hspace*{3.8cm} 
+\includegraphics[scale=0.68]{signals_}
+\caption{Señal diferencial y señal single ended}
+\end{figure}
+
+Por lo tanto se comienza con la investigación de como acondicionar la señal del sensor Futek para ser leída por el microcontrolador, se llega a la solución de dar uso al ADC ADS1115 ya que este ADC cuenta con entradas diferenciales, que pueden leer dichos voltajes del sensor y acondicionarla internamente, una vez que se acondicione la señal, este dato de señal puede ser leído a través de la comunicación I2C, haciendo la comunicación Arduino - ADS1115. \\
+
+\begin{figure}[htbp]
+\hspace*{6.1cm} 
+\includegraphics[scale=0.48]{ADS1115}
+\caption{ADC ADS1115}
+\end{figure}
+
+ 
+
+
+\newpage
+\subsection{Propuesta para GUI}
+Para el desarrollo de la interfaz gráfica de usuario (GUI) al inicio de la definición del proyecto se estaba contemplando lo siguiente: \\ 
+
+\begin{itemize}
+\item \textit{MyOpenLab}
+\item \textit{Visual Studio .Net with CSharp}
+\end{itemize}
+
+MyOpenLab fue la primer propuesta para la GUI, ya que esta plataforma es libre y es muy utilizada en el campo de la enseñanza de interfaces gráficas. \\
+
+MyOpenLab según la documentación es una herramienta para la programación visual, se usan bloques gráficos para ir desarrollando una aplicación gráfica para el proyecto, algo parecido a MyOpenLab sería Labview, recordando que este último es de pago y esta orientado al desarrollo de VI (Virtual instrument).\\ 
+
+El backend de esta plataforma se encuentra desarrollado en Java. \\ 
+
+Personalmente se comenzó con la investigación de que tan viable sería dar uso a esta plataforma para la GUI del proyecto de residencia, el cual se encontró con algunas fallas a la hora de ejecutar pruebas sencillas con la comunicación arduino, y que además la comunidad de apoyo por parte de otros desarrolladores no se encontraba activa para las fechas del desarrollo del proyecto, por lo cual fueron puntos a tomar en cuenta. También se observó de que si existiera algún problema con algún bloque de función, se debería de depurar directamente en la parte del desarrollo Java para poder resolver el conflicto. \\ 
+
+MyOpenLab puede ser una excelente herramienta para la inicialización del aprendizaje de programación gráfica, para poder crear prácticas o algunos proyectos de pequeña escala, pero para proyectos más grandes sería prudente contemplar otra plataforma con mayor apoyo de la comunidad de desarrolladores, así como también que sea más estable y robusta en sus bloques de funciones. 
+
+ \begin{figure}[htbp]
+\hspace*{4.2cm} 
+\includegraphics[scale=0.30]{my_openlab}
+\caption{Aplicación bajo entorno MyOpenLab}
+\end{figure}
+\newpage
+
+Es por ello que se empezó a investigar otra propuesta para la GUI, en este caso se encontró la plataforma Microsoft Visual Studio, para dar uso al framework Windows .Net y el lenguaje Csharp para la creación de la GUI. \\ 
+
+ \begin{figure}[htbp]
+\hspace*{5.2cm} 
+\includegraphics[scale=0.45]{logo_csharp}
+\caption{Logo Csharp y Microsoft NET}
+\end{figure}
+
+Con una experiencia previa que tuve con Visual Basic en un lugar donde trabajaba, donde logré desarrollar una aplicación de escritorio para la manipulación de un libro de excel para el control de inventarios y generación de listas de materiales, a través de \textit{Visual Basic for Applications Excel }, por lo tanto, cuando observé como se desarrolla una aplicación de escritorio a través de Csharp y el framework Windows .Net de inmediato recordé el desarrollo de aquella aplicación y lo fácil e interactiva que es desarrollar una aplicación a través de código puro. \\
+
+Solo que esta vez, sería utilizando una plataforma nueva para mi carrera de estudiante, sería utilizar Visual Studio community, la tecnología  framework Windows .Net y el lenguaje de desarrollo C sharp, el cual agrega un pequeño desafío en el desarrollo de la GUI, pero que es alcanzable. \\ 
+
+Se dio como propuesta realizar la GUI con las herramientas anteriormente mencionadas y fue aceptada. \\ 
+
+La utilidad de usar framework .net es tener la capacidad de desarrollar aplicaciones de escritorio nativas para el sistema operativo Windows, el cual esta tecnología proporciona al desarrollador herramientas propias para la creación de aplicaciones de escritorio Windows. \\ 
+
+Esta tecnología no únicamente se utiliza para el desarrollo de aplicaciones de escritorio, si no que también tiene utilidad en el desarrollo de aplicaciones móviles, aplicaciones web, desarrollo de interfaces, etc. \\
+
+Por lo tanto, utilizar framework .net junto con C sharp desgloza muchas posibilidades, pero sus capacidades de estas herramientas son explotadas en carreras de ingeniería de desarrollo software o informática. \\
+
+Como se puede deducir, al crear la GUI del proyecto con estas herramientas, se mezclan dos áreas de ingeniería, por una parte la ingeniería en mecatrónica/electrónica y por otra la ingeniería en desarrollo software, quedando así un desarrollo de proyecto que abarca estas áreas. \\  
+
+\newpage
+
+\subsection{Diagrama de bloques}
+Se presenta el diagrama de bloques del proyecto, el cual muestra todos los dispositivos involucrados  y la manera en que estos están conectados para formar el sistema de control del banco de pruebas a máquinas eléctricas. \\ 
+
+ \begin{figure}[htbp]
+\hspace*{1.1cm} 
+\includegraphics[scale=0.58]{bloques_diagram}
+\caption{Diagrama de bloques del proyecto}
+\end{figure}
+
 
 \end{document}

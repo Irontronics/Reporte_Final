@@ -54,3 +54,8 @@
 \contentsline {paragraph}{\numberline {10.3.2.1}Dato de velocidad}{43}
 \contentsline {paragraph}{\numberline {10.3.2.2}Dato de torque}{44}
 \contentsline {subsubsection}{\numberline {10.3.3}Freno industrial Warner Electric }{44}
+\contentsline {subsection}{\numberline {10.4}Propuestas de controlador}{47}
+\contentsline {subsubsection}{\numberline {10.4.1}Raspberry Pi}{47}
+\contentsline {subsubsection}{\numberline {10.4.2}Arduino}{49}
+\contentsline {subsection}{\numberline {10.5}Propuesta para GUI}{53}
+\contentsline {subsection}{\numberline {10.6}Diagrama de bloques}{55}
