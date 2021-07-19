@@ -28,6 +28,7 @@
 % \rule{\linewidth}{1.0mm} 
 % \newline
   Miguel Ángel Pérez Bautista \\[4.5mm]
+  16011804 \\[4.5mm]
  Integración de un sistema de monitoreo y control de un banco de pruebas de máquinas eléctricas\\[4.5mm]
  Coordinación de ingeniería en electrónica\\[4.5mm]
  % Instituto Tecnológico José Mario Molina Campus Zapopan\\[4.5mm]
@@ -90,7 +91,7 @@ Asesor interno: & \vspace{5mm} Ing. Jesús Ramón Sosa Beltrán \newline   \\ [3
 \hline
 Asesor externo: & \vspace{5mm} Dr. Noé Villa Villaseñor  \\ [3.5mm]
 \hline
-Periodo de realización: & \vspace{5mm} Febrero 2021 - Junio 2021  \\  [3.5mm]
+Periodo de realización: & \vspace{5mm} Febrero  - Julio 2021  \\  [3.5mm]
 \hline
 Área: & \vspace{5mm} Laboratorio de eficiencia energética en CIATEQ Jalisco  \\  [3.5mm]
 \hline
@@ -1099,7 +1100,7 @@ La utilidad de usar framework .net es tener la capacidad de desarrollar aplicaci
 
 Esta tecnología no únicamente se utiliza para el desarrollo de aplicaciones de escritorio, si no que también tiene utilidad en el desarrollo de aplicaciones móviles, aplicaciones web, desarrollo de interfaces, etc. \\
 
-Por lo tanto, utilizar framework .net junto con C sharp desgloza muchas posibilidades, pero sus capacidades de estas herramientas son explotadas en carreras de ingeniería de desarrollo software o informática. \\
+Por lo tanto, utilizar framework .net junto con C sharp desglosa muchas posibilidades, pero sus capacidades de estas herramientas son explotadas en carreras de ingeniería de desarrollo software o informática. \\
 
 Como se puede deducir, al crear la GUI del proyecto con estas herramientas, se mezclan dos áreas de ingeniería, por una parte la ingeniería en mecatrónica/electrónica y por otra la ingeniería en desarrollo software, quedando así un desarrollo de proyecto que abarca estas áreas. \\  
 
@@ -1113,6 +1114,716 @@ Se presenta el diagrama de bloques del proyecto, el cual muestra todos los dispo
 \includegraphics[scale=0.58]{bloques_diagram}
 \caption{Diagrama de bloques del proyecto}
 \end{figure}
+\newpage
+\subsection{Desarrollo de comunicación Kollmorgen Modbus}
+En esta sección se presentan las actividades para el desarrollo de la etapa de comunicación hacia el servodrive Kollmorgen AKD. 
+
+\subsubsection{Lectura del manual de usuario}
+Primeramente, como se definió anteriormente, la comunicación hacia el servodrive Kollmorgen AKD será a través de una comunicación Modbus TCP/IP, realizando así la comunicación entre Arduino Mega y el servodrive, tal como se vio anteriormente en el diagrama de bloques. \\ 
+
+La comunicación Ethernet será con ayuda del shield Ethernet for arduino, el cual este módulo tiene como circuito integrado un W5100 que es el controlador que efectua y condiciona la comunicación ethernet modbus TCP/IP. \\
+
+Pero antes de enlazar la comunicación Modbus Ethernet, se debe de revisar el manual de usuario del servodrive Kollmorgen AKD para conocer los registros de memoria, y comenzar a reconocer cuales de ellos son los que se deben de configurar y leer para poder realizar los movimientos de acuerdo a las condiciones que el usuario establezca a través de la interfaz de usuario.\\ 
+
+Se tomó la lectura del manual de usuario del servodrive, sobretodo en la parte donde sale una tabla resumida de los registros de memoria de configuración del servodrive. En dicha tabla se puede observar el nombre del parámetro, tipo y descripción, como se muestra : 
+
+ \begin{figure}[htbp]
+\hspace*{1.1cm} 
+\includegraphics[scale=1.1]{param_kollmorgen}
+\caption{Tabla de parámetros resumida}
+\end{figure}
+\newpage
+Pero, para poder apreciar en mayor detalle la descripción del parámetro, se debe de ir al número de página que indica entre paréntesis, en esa sección,  se explica a detalle todo lo que se debe de saber del parámetro en cuestión: \\
+
+ \begin{figure}[htbp]
+\hspace*{1.1cm} 
+\includegraphics[scale=1.2]{param2}
+\caption{Descripción de parámetro detallada}
+\end{figure}
+
+Se debe de observar que en esta sección se encuentra la dirección del bus de campo modbus, el cual esta es la dirección del registro de memoria para poder configurar este parámetro. \\ 
+
+\newpage
+\subsubsection{Teoría básica Modbus TCP/IP}
+En el conocimiento básico del protocolo Modbus TCP/IP se debe de tener en cuenta en que en la red existen clientes y servidores. Lo anterior es lo mismo que llamar maestro al cliente y esclavo al servidor. \\ 
+
+Por lo tanto en cualquier red de Ethernet Modbus TCP/IP , se encontrará el dispositivo que se hace llamar como cliente (que es el que puede leer y escribir) y el servidor que es el que responde bajo los comandos de orden que indica el cliente. \\ 
+
+ \begin{figure}[htbp]
+\hspace*{1.9cm} 
+\includegraphics[scale=1.0]{red_modbus2}
+\caption{Red Modbus TCP/IP }
+\end{figure}
+
+Como se observa en la figura anterior, en la red de modbus TCP/IP se tienen tanto esclavos (servidor) como maestros (cliente). \\
+
+Con esta breve explicación se deduce entonces que el arduino debe de trabajar como un cliente y el servodrive debe de trabajar como un servidor, el cual responderá a las ordenes que el arduino envíe. \\ 
+
+Como en cualquier protocolo de comunicación, modbus TCP/IP tiene su trama de datos, el cual debe de comprenderse para tener mejor idea de como es que se envían datos a través de esta comunicación: \\ 
+
+ \begin{figure}[htbp]
+\hspace*{1.9cm} 
+\includegraphics[scale=0.50]{trama_modbus}
+\caption{Trama de comunicación modbus TCP/IP }
+\end{figure}
+
+\newpage
+
+Las partes importantes para la comunicación modbus son los tres últimos bloques de la trama (ID, Código de función, Datos). \\ 
+
+El ID por default se deja como 01 (esto ya se encuentra configurado propiamente por la trama). \\
+
+Se observa también que requiere de un código de función, estos códigos ya se encuentran establecidos propiamente para la comunicación modbus TCP/IP, las cuales se muestran a continuación: \\ 
+
+ \begin{figure}[htbp]
+\hspace*{1.9cm} 
+\includegraphics[scale=0.68]{function_code}
+\caption{Códigos de funciones para Modbus TCP/IP }
+\end{figure}
+
+La tabla anterior es importante por que es la base del entendimiento de la comunicación modbus. \\
+
+En el manual de usuario Kollmorgen AKD se encuentra que los registros de memoria propios del servodrive utilizan las funciones: \\
+
+\begin{itemize}
+\item \textit{03 - Read Holding Registers}
+\item \textit{16 - Write Multiple Registers\\} 
+\end{itemize}
 
 
+Con base  a la tabla, se observa que  ambas funciones que Kollmorgen Servodrive utiliza, son de 16 bits. Esto es importante tomarlo en cuenta, ya que en la descripción detallada de cada parámetro de función del servodrive indica si la palabra es de 8,16,32 o 64 bits. De acuerdo a la longitud de la palabra, será la cantidad de registros que se deben de contemplar para poder igualar a la longitud de la palabra. \\
+\newpage
+En el manual de usuario indica que cuando se accede o escribe en un registro de 32 bits, se deben de contemplar 2 registros (16 bit cada registro) y cuando se accede o escribe en un registro de 64 bits, se deben de contemplar 4 registros.\\
+
+Con este dato se demuestra que es para que la longitud del dato del registro coincida con la cantidad de registros de tamaño fijo que modbus maneja para dichas funciones. \\ 
+
+\subsubsection{Pruebas de comunicación Modbus TCP IP }
+Para tener un mejor entendimiento en la comunicación modbus y observar como es que se leen y escriben en registros, se hicieron varias pruebas de comunicación, a través de la computadora de desarrollo y el propio servodrive kollmorgen. \\ 
+
+En primer lugar, se creó una red local, el cual esta misma sería utilizada para el proyecto de residencia. Las IP de los dispositivos son los siguientes: \\ 
+
+ \begin{figure}[htbp]
+\hspace*{5.1cm} 
+\includegraphics[scale=0.88]{Ip_s}
+\caption{IPs establecidas para el proyecto }
+\end{figure}
+
+Se procede a configurar la IP local tanto en Windows como en el servodrive. Para poder configurar la IP en el servodrive se dio uso al software Kollmorgen WorkBench. \\
+
+Por lo tanto, la red quedaría de la siguiente manera: \\
+ \begin{figure}[htbp]
+\hspace*{3.1cm} 
+\includegraphics[scale=0.68]{prueba_modbus}
+\caption{Red local para realizar prueba de comunicación}
+\end{figure}
+\newpage
+Una vez realizada la red local para las pruebas de comunicación, se mandó un comando ping a través de la consola de comandos de Windows para observar si hay respuesta por parte del servodrive Kollmorgen a través de red: \\ 
+
+ \begin{figure}[htbp]
+\hspace*{3.2cm} 
+\includegraphics[scale=0.88]{ping_test}
+\caption{Respuesta al Ping por parte de servodrive}
+\end{figure}
+
+Como se puede ver, la red ya se encuentra habilitada, por lo tanto se procede a realizar pruebas de escritura y lectura de algunos registros, para ello fue utilizada la herramienta \textit{Modbus poll.}\\ 
+
+Con la anterior herramienta podemos escribir o leer registros propios del servodrive, esto se hace enlazando \textit{Modbus poll} a la red local y colocando la IP destino, en este caso la IP del servodrive. \\ 
+
+Como ejemplo se realizó la lectura del registro DIN.MODE el cual es la dirección 122 en modbus. Con la herramienta se establece la dirección a leer, la función que va a realizar (este caso 03 Read Holding Register) y la cantidad de registros, en este caso 2 registros, por que el registro DIN.MODE es de 32 bits: \\ 
+ 
+ \begin{figure}[htbp]
+\hspace*{4.6cm} 
+\includegraphics[scale=0.88]{poll1}
+\caption{Configuración para leer DIN MODE}
+\end{figure}
+\newpage
+Una vez que se configura lo que la herramienta deberá de hacer, se observa  en el registro 122  un dato, este dato es el que se encuentra escrito en dicho registro: \\ 
+ \begin{figure}[htbp]
+\hspace*{6.6cm} 
+\includegraphics[scale=0.68]{response_poll}
+\caption{Respuesta al leer registro 122 DIN MODE}
+\end{figure}
+
+Lo interesante de esta herramienta es que se puede observar el flujo de tráfico de la comunicación, observando como se envía el trama de solicitud por parte del cliente y la respuesta por parte del servidor: \\ 
+ \begin{figure}[htbp]
+\hspace*{2.8cm} 
+\includegraphics[scale=0.88]{Imagen1}
+\caption{Tráfico de comunicación}
+\end{figure}
+
+Se observa en color rojo, la solicitud enviada por el cliente (TX), el cual la parte importante es donde inicia el 01 03 00 7A 00 02, donde el 01 indica el ID,  el 03 es la función modbus (Read Holding Register), 00 7A es la dirección del registro a leer, en este caso 00 7A es 122 en hexadecimal, y por último 00 02 es la cantidad de registros a leer, en este caso 2 por que el registro es de 32 bits. \\ 
+
+\newpage
+En la respuesta por parte del servidor (RX), se puede observar que la respuesta es 01 03 04 00 00 00 0F, donde 01 es el ID, 03 es la función modbus (Read Holding Register), 04 es la cantidad de bytes del dato, y 00 00 00 0F es el dato que tiene el registro 122 en este caso es 0F que en decimal es igual a 15. \\ 
+
+Para el caso de escritura a registros del servodrive, se debe de seleccionar la función 16 de modbus, encontrada en la barra de herramientas del software \textit{modbus poll,} una vez seleccionada se despliega la siguiente ventana: \\ 
+
+ \begin{figure}[htbp]
+\hspace*{2.8cm} 
+\includegraphics[scale=0.88]{poll2}
+\caption{Configuración para escritura de registro}
+\end{figure}
+
+Una vez estando en la ventana, resulta fácil el configurar lo que se requiere realizar, únicamente establecemos la dirección del registro, la longitud de dato del registro y para escribir únicamente le damos en \textit{edit} para poder escribir un nuevo valor. \\ 
+
+En la ventana de tráfico de comunicaciones se puede observar la trama que envía por parte del cliente y la respuesta que se recibe por parte del servidor, observando el código de función, que en este caso es 10 hex (16 en decimal): \\ 
+ \begin{figure}[htbp]
+\hspace*{2.8cm} 
+\includegraphics[scale=0.88]{poll3}
+\caption{Tráfico de datos en Modbus Poll}
+\end{figure}
+\newpage
+Para finalizar con las pruebas de comunicación, se utilizó otra herramienta llamada \textit{WireShark} el cual esta herramienta permite observar los paquetes de datos dentro de una red, observando que los datos enviados entre la computadora y el servodrive realmente es una comunicación puramente modbus TCP/IP: \\ 
+
+ \begin{figure}[htbp]
+\hspace*{0.2cm} 
+\includegraphics[scale=0.50]{Response33}
+\caption{Tráfico de datos mediante WireShark}
+\end{figure}
+
+Con las anteriores pruebas de comunicación realizadas en la red Modbus TCP/IP se comprendió como se envían solicitudes para tomar lectura a registros, así como también como se envían las solicitudes para escribir un registro en específico. Por lo tanto el Arduino debe de ser capaz de leer registros a través de la función 03 ``Read holding registers'' y escribir registros a través de la función 16 ``Write Multiple Registers''  que son las funciones que el servodrive acepta para poder hacer cambios en la configuración de sus respectivos espacios de memoria. \\ 
+
+\newpage
+\subsubsection{Identificación de registros a implementar en proyecto}
+El paso que sigue es el identificar los registros de configuración y lectura que se deben de contemplar para integrarlos al desarrollo del proyecto. Los registros de memoria que utilizan para la configuración del movimiento del servomotor son los siguientes: \\ 
+
+ \begin{figure}[htbp]
+\hspace*{1.9cm} 
+\includegraphics[scale=0.75]{registros_ajustes}
+\caption{Registros de memoria para la configuración del movimiento}
+\end{figure}
+
+Como se puede observar, se utilizan 8 comandos de configuración para poder realizar movimientos del servomotor de acuerdo a lo que el usuario en la interfaz gráfica establezca, por lo tanto la trama diseñada para el proyecto que envía la GUI a Arduino, para que posteriormente se envíen los datos de configuración de parámetros por Modbus TCP/IP a servodrive es la siguiente: \\
+
+ \begin{figure}[htbp]
+\hspace*{0.0cm} 
+\includegraphics[scale=0.62]{trama_gui_ard}
+\caption{Trama diseñada para el envío de paquete de configuración}
+\end{figure}
+
+Para tomar lectura de valores de registros de memoria del servodrive, únicamente se leen 3 registros, los cuales son:
+ \begin{figure}[htbp]
+\hspace*{1.8cm} 
+\includegraphics[scale=0.65]{reg_mon}
+\caption{Registros servodrive para monitereo en GUI}
+\end{figure}
+\newpage
+La trama que envía el Arduino a GUI que contiene los datos de los registros de servodrive para monitorear en GUI es la siguiente: \\ 
+
+ \begin{figure}[htbp]
+\hspace*{1.1cm} 
+\includegraphics[scale=0.68]{trama_mon}
+\caption{Trama de datos para monitorear en GUI}
+\end{figure}
+
+El último dato de la trama no es un registro modbus, ese dato lo proporciona el sensor encoder Futek TRS605. \\ 
+
+Por último, los comandos de control de movimiento y habilitación que se utilizan de GUI a arduino son los siguientes:  \\
+ 
+ \begin{figure}[htbp]
+\hspace*{1.5cm} 
+\includegraphics[scale=0.68]{reg_control}
+\caption{Registros de control de movimiento y habilitación}
+\end{figure}
+
+Estos últimos registros no necesitan enviarse a través de una trama de datos, ya que estos se utilizan cada vez que el usuario hace click en el botón específico. \\ 
+
+Como se puede observar,  en total suman 15 registros del servodrive que se acceden a través de modbus TCP/IP teniendo una plataforma integrada entre la GUI y el sistema de control, logrando así controlar el servomotor de acuerdo a la configuración realizada en la GUI. \\
+\newpage
+\subsubsection{Arduino Modbus TCP/IP}
+Una vez que se conocen los registros que serán necesarios implementar en proyecto y que también se sabe que tipo de funciones modbus son permitidas en los registros del servodrive, se debe de revisar la documentación de la librería Modbus TCP/IP para conocer el sintaxis correcto para mandar la trama Modbus TCP/IP hacía el servodrive. \\ 
+
+En el propio código del desarrollo de la librería muestra: \\ 
+
+ \begin{figure}[htbp]
+\hspace*{6.1cm} 
+\includegraphics[scale=0.68]{funciones_lib}
+\caption{Funciones Modbus que soporta librería}
+\end{figure}
+
+Por lo tanto, las funciones modbus que se deben de utilizar para leer registros del servodrive Kollmorgen son: \\
+\begin{itemize}
+\item \texttt{MB FC READ REGISTER (Función 03 Modbus)}
+\item \texttt{MB FC WRITE MULTIPLE REGISTERS (Función 16 Modbus)\\}
+\end{itemize}
+
+La sintaxis que se realiza en código de arduino para leer un registro modbus es la siguiente: \\
+ \begin{figure}[htbp]
+\hspace*{4.1cm} 
+\includegraphics[scale=0.68]{read_register}
+\caption{Leer registro 1055 (DRV.HWNABLE)}
+\end{figure}
+
+Donde después de invocar la función MB FC READ REGISTERS, se debe de indicar cual es la dirección del registro, en este caso 1055, la cantidad de bytes que va a leer, en este caso 1 byte, y el tercer parámetro de función se deja en 0. \\ 
+
+Para la escritura de un registro del servodrive, se debe de realizar la siguiente sintaxis: \\ 
+ \begin{figure}[htbp]
+\hspace*{4.1cm} 
+\includegraphics[scale=0.68]{write_reg}
+\caption{Escribir en registro 758 (SM.V1)}
+\end{figure}
+\newpage
+Por lo tanto, con base a lo anterior ya se puede realizar código de control en el Arduino para la lectura y la escritura de los registros que se van a utilizar en el proyecto. La red local que se crea para el proyecto es la siguiente, dejando la computadora parte de la red, ya que la computadora se puede necesitar para depuración de errores, aunque se puede retirar de la red. \\ 
+
+ \begin{figure}[htbp]
+\hspace*{3.9cm} 
+\includegraphics[scale=0.68]{red_diagram}
+\caption{Diagrama de red implementada para el proyecto}
+\end{figure}
+
+Una parte del código de control para la lectura de los registros de monitoreo para mandar a la GUI es la siguiente: \\ 
+ \begin{figure}[htbp]
+\hspace*{2.2cm} 
+\includegraphics[scale=0.55]{code_read}
+\caption{Parte del código de control para lectura de registros Servodrive }
+\end{figure}
+\newpage
+Parte del código de control para la escritura de registros de configuración es la siguiente: \\ 
+  \begin{figure}[htbp]
+\hspace*{0.2cm} 
+\includegraphics[scale=0.60]{write_code}
+\caption{Parte del código de la escritura de registros servodrive }
+\end{figure}
+
+Una limitante que se observa en el código de control para la comunicación Modbus TCP/IP es que para cada sentencia de registro, sea para escritura o lectura, esta sincronizada con un tiempo, el cual si se necesita trabajar con varios registros de modbus en secuencia, este tiempo puede superar más de un segundo en completarse, por lo cual es un tiempo que debe de tomarse en cuenta, ya que este tiempo se traduce como un retraso para la aplicación. \\ 
+
+Se deben de contemplar únicamente registros que si sean necesarios para el proyecto y optimizar los tiempos entre solicitudes de cada registro. \\ 
+
+Una manera de optimizar los tiempos, es observar si existen direcciones de registro subsecuentes (adyacentes), y poder eliminar algunas líneas de código, ahorrando tiempos de ejecución de instrucción. \\
+\newpage
+Esta optimización de líneas de ejecución se implementó para leer el registro 858 y 859 que es el dato de velocidad VL.FB, el cual al ser dos direcciones subsecuentes, se eliminaron algunas líneas para ahorrar tiempo, y el bloque de código quedó de la siguiente manera: \\
+
+  \begin{figure}[htbp]
+\hspace*{1.9cm} 
+\includegraphics[scale=0.80]{optimizacion_reg}
+\caption{Bloque de código optmizado para lectura de registro modbus}
+\end{figure}
+
+Como se observa, se declaran dos métodos MbData, estos para tomar los dos valores de cada registro. En la parte de la sintaxis de la función READ REGISTERS,  se observa que en el segundo parámetro tiene un valor de 2, esto es por que se está configurando la función que lea dos espacios de memoria (2 registros), iniciando desde la dirección 858, por lo cual en el método MbData[0] guarda el valor del registro 858 y en MbData[1] guarda el valor del registro 859. \\
+
+Al final de cuentas, son dos registros de 16 bits, por lo cual forman una palabra de 32 bits. Si se busca en el manual de usuario el parámetro VL.FB se encontrará que este dato esta representado por 4 registros de 32 bits, por lo tanto es un registro completo de 64 bits, pero para el proyecto únicamente nos interesa la parte baja de esta palabra de 64 bits, que son los dos registros últimos (858, 859) la parte LSB de la palabra, el cual entre estos dos almacenan valores de velocidades bajas. \\
+
+Se toman únicamente los dos registros LSB de la palabra ya que el banco de pruebas no va a superar velocidades por arriba de 1.500 RPM, por lo tanto con los dos registros LSB es más que suficiente para obtener el dato que necesita la aplicación. \\  
+\newpage
+\subsection{Sensor de torque Futek TRS605}
+En este apartado se desglosa el desarrollo para la implementación del sensor Futek TRS605. 
+\subsubsection{Dato Velocidad }
+La forma en que se presenta el dato de velocidad proveniente del sensor Futek TRS605, es mediante señales cuadradas, el cual es mediante el desfase  y el ancho de pulso de estas señales las que determinan a que velocidad esta girando el eje y en que sentido de dirección se encuentra. \\ 
+
+La manera en que se leen este tipo de señales es mediante interrupciones del microcontrolador, funcionando  como si fuera un frecuencímetro. Una vez que se obtiene el valor de diferencia entre señales, el resultado pasa a ser procesado para convertirlo en la representación de velocidad. \\ 
+
+Los pines usados para interrupciones en el arduino Mega (Atmega2560) fueron los pines A13 y A14. \\ 
+
+Además de que se utilizó la librería \textit{RotaryEncoder}. \\
+
+Una vez instalada la librería se realizan pruebas de funcionamiento para obtener el dato de velocidad en el monitor serie, el cual se logra satisfactoriamente. \\
+
+Parte del código del ejemplo es el siguiente: \\ 
+
+\begin{figure}[htbp]
+\hspace*{1.9cm} 
+\includegraphics[scale=0.70]{code_encoder}
+\caption{Parte del código del encoder Futek para obtener dato de velocidad}
+\end{figure}
+\newpage
+La dificultad que se encontró al realizar la implementación del sensor Futek para obtener el dato de velocidad, fue que la librería propiamente esta desarrollada para la tarjeta Arduino UNO (Atmega328p), no para Arduino Mega (Atmega2560). \\
+
+Por lo tanto al principio no se obtenían resultados en el programa, se realizó un estudio e investigación para poder modificar propiamente la librería y que sea posible utilizar esta librería de encoder en el Arduino Mega.\\
+
+Se llega a una parte del desarrollo de la librería donde establece los registros directos del microcontrolador, donde ahí es donde configura de manera manual los registros de interrupción. \\
+
+Se investiga y se encuentran los registros de interrupción del microcontrolador Atmega2560 y se configuran adecuadamente en ese bloque de código, como se observa: \\  
+
+\begin{figure}[htbp]
+\hspace*{1.9cm} 
+\includegraphics[scale=0.85]{pines_int}
+\caption{Registros del microcontrolador AtMega2560 para interrupciones}
+\end{figure}
+
+Haciendo lo anterior, se logran habilitar las interrupcciones y la librería funciona ahora en el Atmega2560. \\
+\subsubsection{Dato torque }
+Para obtener el dato del torque envíado propiamente por el sensor Futek, fue necesario dar uso al módulo ADC ADS1115, ya que la señal que representa el dato del torque esta representada bajo señal analógica diferencial, que como se vio anteriormente en la sección de reconocimiento de dispositivos, esta señal analógica diferencial no puede ser leída por arduino directamente ya que contiene voltajes negativos y positivos. Es por ello que se toma como solución este módulo ADC el cual cuenta con modo diferencial. \\ 
+
+El mapa de conexiones que se realizaron fueron las siguientes: \\ 
+\begin{figure}[htbp]
+\hspace*{4.5cm} 
+\includegraphics[scale=0.85]{conexiones1}
+\caption{Conexionado del módulo ADS115}
+\end{figure}
+\newpage
+Una vez teniendo el módulo conectado directamente, se hace uso de la librería \textit{Adafruit ADS1X15} y \textit{wire}, la primera librería es la librería propia del módulo y la segunda librería es para habilitar comunicación I2C. \\ 
+
+Dentro del código, se necesita que inicializar el módulo ADS1115 de la siguiente manera: \\ 
+\begin{figure}[htbp]
+\hspace*{4.9cm} 
+\includegraphics[scale=0.78]{ADS1115_init}
+\caption{Configuración e inicialización del módulo ADS1115}
+\end{figure}
+
+Una vez realizado lo anterior, solamente se debe de ejecutar el siguiente comando para obtener el valor de la señal analógica diferencial, una vez que se obtenga el dato, se debe de convertir el dato a la representación de mV, esto ya se hace en el código de desarrollo. \\ 
+
+\begin{figure}[htbp]
+\hspace*{4.9cm} 
+\includegraphics[scale=0.78]{comando_leer}
+\caption{Obtener lectura de la señal analógica}
+\end{figure}
+
+Para mejorar la estabilidad en las lecturas de señal, implementé un filtro para poder promediar las lecturas y estabilizar aún más las lecturas: \\ 
+
+\begin{figure}[htbp]
+\hspace*{2.1cm} 
+\includegraphics[scale=0.78]{prom}
+\caption{Filtro mediante software para estabilizar lecturas de señal}
+\end{figure}
+
+Se concluye con la integración del sensor Futek TRS605 al proyecto de residencia. \\
+\newpage
+\subsection{Freno Industrial Warner Electric}
+Para integrar este dispositivo al proyecto se debe de contemplar dos salidas digitales para poder hacer la siguiente tabla lógica: \\ 
+
+\begin{figure}[htbp]
+\hspace*{5.2cm} 
+\includegraphics[scale=0.60]{modos_freno}
+\caption{Tabla lógica de control Freno Warner Electric}
+\end{figure}
+
+En este caso, solamente serán utilizadas dos salidas digitales del arduino Mega, la salida CH1 y Salida CH2. 
+Pero al estar realizando pruebas se encuentra que el nivel lógico que necesita el controlador del freno Warner Electric debe de ser entre 8V y 15 V por lo cual el arduino no será capaz de mandar esos niveles lógicos directamente de sus salidas. 
+
+Es por ello que se diseña un circuito básico para la conversión del nivel de voltaje lógico, de 5V a 12V aproximadamente: \\ 
+
+
+\begin{figure}[htbp]
+\hspace*{1.8cm} 
+\includegraphics[scale=0.73]{CIRCUIT}
+\caption{Circuito de conversión nivel lógico 5V - 12V}
+\end{figure}
+\newpage
+Con esta solución se obtienen las salidas de accionamiento del propio Arduino, trabajando con 5V y habilitando el transistor correspondiente, y permitiendo una caída de tensión sobre Colector Emisor y tomando un voltaje de aproximado 11 V, siendo este voltaje capaz de reconocer como '1' lógico y accionar el freno de acuerdo a la tabla lógica. \\
+
+El código implementado para este dispositivo resulta fácil, solamente es definir las salidas del arduino y simplemente mandarlas a habilitar cuando la aplicación requiera hacer un cambio en el estado del freno industrial Warner Electric. \\ 
+
+\begin{figure}[htbp]
+\hspace*{3.8cm} 
+\includegraphics[scale=0.92]{salidas_freno}
+\caption{Definición de salidas para Freno Warner Electric}
+\end{figure}
+
+\begin{figure}[htbp]
+\hspace*{2.8cm} 
+\includegraphics[scale=0.92]{codigo_freno}
+\caption{Código implementado para el Freno Warner Electric}
+\end{figure}
+
+Como se observa, la lógica de activación para cambiar los modos del freno industrial es de manera sencilla y se sigue la tabla lógica que se presentó al inicio, logrando así el cambio de modos de operación del freno de acuerdo a lo que necesite la aplicación a través de la GUI de usuario. \\
+\newpage
+\subsection{Desarrollo de GUI}
+Para comenzar con el desarrollo de la GUI, se establece como IDE o plataforma de desarrollo \textit{Visual Studio Community} el cual es una plataforma libre y gratuita para desarrollo de proyectos sin fines de lucro, por lo cual se comienza a desarrollar el código de la GUI a través de esta plataforma. \\
+
+La manera de desarrollar la GUI en esta plataforma no es para nada difícil ya que solamente debes de tener conocimientos básicos sobre Windows Form (el cual esta característica la proporciona el framework Windows .net ), se debe de tener en mente que Windows Form son ventanas de aplicación el cual cada ventana tiene sus eventos, métodos y atributos las cuales se deben de configurar/programar para que la ventana trabaje de acuerdo a lo que debe de realizar. \\
+
+Cuando se tiene varias ventanas y estas se van abriendo de acuerdo de como vaya ejecutándose el programa de aplicación se verá una aplicación dinámica y fluida, como si fuera una aplicación de escritorio normal que se abre en la computadora. \\
+
+Se debe de tomar en cuenta que la aplicación de desarrollo que se pretende implementar debe de tener comunicación serial para que se pueda comunicar al puerto COM del arduino , ya que esa será la interface entre GUI y el sistema de control, tal cual somo se vió en el diagrama de bloques que se presentó al inicio. \\
+
+Hablar del código del a GUI es muy extenso, ya que se se tienen 4 bloques de código que trabajan en conjunto para poder crear la aplicación completa, además que tanto el desarrollo del sistema de control como el desarrollo de la interfaz gráfica, CIATEQ no permite que se haga público el proyecto entero, esto por que se prende cambiar de plataforma y hacer el proyecto privado. \\ 
+
+Por último, se agrega la primer interfaz gráfica que se desarrolló para comenzar a realizar pruebas de funcionamiento, la versión final se verá en la parte de \textit{resultados}. \\ 
+
+\begin{figure}[htbp]
+\hspace*{4.8cm} 
+\includegraphics[scale=0.64]{gui_ini}
+\caption{Primer GUI beta del proyecto de residencia}
+\end{figure}
+\newpage
+\section{Resultados}
+En esta sección se abordan los resultados obtenidos con el desarrollo del proyecto de residencia. \\
+
+\subsection{Inicialización de aplicación y pantalla principal}
+La aplicación se abre a través del icono que se encuentra en el escritorio: \\ 
+
+\begin{figure}[htbp]
+\hspace*{6.9cm} 
+\includegraphics[scale=0.92]{icono}
+\caption{Icono de la aplicación}
+\end{figure}
+
+La imagen siguiente muestra la pantalla principal de la aplicación:  \\
+
+\begin{figure}[htbp]
+\hspace*{2.8cm} 
+\includegraphics[scale=0.72]{main_screen}
+\caption{Pantalla principal de la aplicación}
+\end{figure}
+
+En esta  ventana se debe de seleccionar el puerto COM del arduino para enlazar la GUI con el sistema de control. Una vez seleccionado el puerto correspondiente del arduino, dar click en \textit{Open} \\
+
+También se observa que el usuario puede seleccionar la velocidad de baudios, en este caso la aplicación de control se encuentra con una velocidad de 9600, por lo cual se deja por default. \\
+
+\newpage
+Si la comunicación fue exitosa, se desplegará un mensaje en color verde, caso contrario será de color rojo: \\
+
+\begin{figure}[htbp]
+\hspace*{4.5cm} 
+\includegraphics[scale=0.88]{exito}
+\caption{GUI se conectó satisfactoriamente con sistema de control}
+\end{figure}
+
+\begin{figure}[htbp]
+\hspace*{4.5cm} 
+\includegraphics[scale=0.88]{fail}
+\caption{GUI no logró conectarse con el sistema de control}
+\end{figure}
+
+Cuando se logra una comunicación exitosa, se habilitará los modos de operación del banco de pruebas, como se muestra: \\
+
+\begin{figure}[htbp]
+\hspace*{3.8cm} 
+\includegraphics[scale=0.72]{Connected}
+\caption{Habilitación de modos de operación banco de pruebas}
+\end{figure}
+\newpage
+Para ingresar al modo deseado, únicamente se debe de seleccionar el modo de operación a donde desea ingresar, y presionar el botón \textit{Ok} 
+
+\begin{figure}[htbp]
+\hspace*{3.8cm} 
+\includegraphics[scale=0.72]{Seleected_mode2}
+\caption{Selección de modo de prueba}
+\end{figure}
+
+Como se observa, la GUI es inteligente, cuando el usuario selecciona el modo de operación, el otro inmediatamente se bloquea, si se deselecciona la casilla, vuelve a estar habilitado. \\ 
+
+En esta ventana también se puede dar uso al botón \textit{Close} el cual cierra el puerto serie. \\
+
+La  ventana puede cerrarse dando uso al botón \textit{Cancel} o dando uso al botón de \textit{cerrar ventana.}
+
+\subsubsection{Carpeta de recopilación de datos}
+Cuando la aplicación de escritorio se ejecuta, crea una carpeta general llamada \textit{Datos pruebas} en el disco local C, esta carpeta la crea si no existe, y no la crea si ya existe en la ruta. En esta carpeta se almacenarán los datos recopilados de cada modo de operación.   \\ 
+\begin{figure}[htbp]
+\hspace*{5.8cm} 
+\includegraphics[scale=0.78]{ruta_inicial}
+\caption{Carpeta general ``Datos pruebas'' en disco local C}
+\end{figure}
+\newpage
+Al ingresar dentro de esta carpeta, se observa que existe una carpeta de sesión, el cual cuenta con  la fecha hora del inicio de sesión (que es cuando se ejecutó la aplicación): \\
+
+\begin{figure}[htbp]
+\hspace*{5.8cm} 
+\includegraphics[scale=0.78]{Carpeta}
+\caption{Carpeta de sesión}
+\end{figure}
+
+Dentro de esta carpeta se van creando dos subcarpetas, de acuerdo a lo que se realizó dentro de esa sección. Si el usuario ejecutó pruebas en los dos modos de operación se crean las siguientes carpetas: \\
+\begin{figure}[htbp]
+\hspace*{4.8cm} 
+\includegraphics[scale=0.78]{Carpetas}
+\caption{Carpeta de sesión}
+\end{figure}
+
+Si solamente el usuario  ingresó a un solo modo de operación, entonces solamente se va a crear una carpeta, incluso si el usuario ejecuta la aplicación, pero no entró a ningún modo de operación y cierra la aplicación, no se creará ninguna carpeta en esta ruta, puesto que no se ejecutó ninguna prueba en ningún modo de operación. \\ 
+
+Dentro de estas carpetas se encontrarán los datos que el usuario guarde cuando se encuentre ejecutando  pruebas en algún modo de operación, más adelante se observará el contenido de estas carpetas. \\
+\newpage
+\subsection{Modo Motor}
+Cuando se ingresa al modo motor, se despliega la siguiente ventana: \\ 
+
+\begin{figure}[htbp]
+\hspace*{2.8cm} 
+\includegraphics[scale=0.50]{Motor_form}
+\caption{Ventana del modo motor}
+\end{figure}
+Se puede apreciar en esta ventana un control dedicado para el modo del freno Warner Electric, puede ser configurado en modo \textit{Freno liberado} o \textit{Freno ajustado}, únicamente se selecciona el modo deseado y se oprime el botón \textit{Set}. \\ 
+
+\begin{figure}[htbp]
+\hspace*{6.8cm} 
+\includegraphics[scale=0.77]{Freno_seett}
+\caption{Cambiar de modo el Freno Industrial Warner Electric}
+\end{figure}
+
+Como se vio en la definición del proyecto, este modo de operación es una pantalla de monitoreo para observar las señales de respuesta que nos entrega el sensor Futek TRS605, además de eso, en modo offline se podrá cambiar el modo de operación del freno, sea en modo ajustado o en modo liberado. 
+
+\newpage
+
+Para comenzar con la prueba, únicamente se debe de oprimir en el botón \textit{Iniciar prueba} para comenzar a gráficar las señales del sensor Futek: \\ 
+
+
+\begin{figure}[htbp]
+\hspace*{2.1cm} 
+\includegraphics[scale=0.57]{init_test}
+\caption{Inicio de prueba modo motor}
+\end{figure}
+
+Se observa que el control del freno Warner Electric ha sido bloqueado, y que dos botones \textit{Guardar gráficas} y \textit{Registro de datos} han sido habilitados. \\ 
+\newpage
+Conforme el motor que esta bajo prueba comience a generar movimiento, se irán gráficando los datos de respuesta del sensor: \\
+
+\begin{figure}[htbp]
+\hspace*{1.8cm} 
+\includegraphics[scale=0.57]{test}
+\caption{Graficando valores de sensor Futek TRS605}
+\end{figure}
+ 
+Cuando se oprime el botón \textit{Iniciar prueba}, esta se mantiene activa , graficando cualquier valor que el sensor Futek proporcione, y si el motor bajo prueba ya no se encuentra realizando ningún movimiento, la prueba continuará activa hasta que se presione el botón \textit{Detener prueba}, una vez presionando ese botón se deja de gráficar los datos.\\
+
+Una forma de comprobar si la prueba esta activa o no, es por el indicador de color que está en el grupo llamado \textit{Monitoreo}, ese indicador tendrá color rojo cuando la prueba esta detenida y color verde cuando la prueba se encuentra iniciada. \\
+
+También en ese mismo grupo de monitoreo, se muestra númericamente los valores de velocidad y torque. \\ 
+ 
+\newpage
+Cuando se presiona el botón \textit{Guardar Gráficas} aparece el siguiente aviso: \\ 
+\begin{figure}[htbp]
+\hspace*{6.8cm} 
+\includegraphics[scale=0.65]{graphs}
+\caption{Aviso de exportación de gráficas}
+\end{figure}
+
+Si se presiona el botón \textit{Registro de datos} se despliega la siguiente ventana: \\ 
+
+\begin{figure}[htbp]
+\hspace*{0.1cm} 
+\includegraphics[scale=0.57]{datos}
+\caption{Ventana de registro de datos}
+\end{figure}
+
+Se puede observar los registros de datos almacenados en una pequeña base de datos, tanto los datos de velocidad como los datos de torque.
+
+\newpage
+ Como estos datos también son de interés para el usuario, se pueden exportar a excel en formato CSV, únicamente se debe de presionar el botón respectivo de cada base de datos y aparecerá el siguiente  aviso: 
+
+\begin{figure}[htbp]
+\hspace*{2.0cm} 
+\includegraphics[scale=0.50]{export_data}
+\caption{Exportación de datos}
+\end{figure}
+
+Los datos de prueba que el usuario exporte, serán almacenados dentro de la carpeta \textit{Modo Motor} en la ruta de la carpeta \textit{Datos pruebas} como se explicó en el apartado \textit{Carpeta de recopilación de datos.} \\ 
+
+Por lo tanto, al acceder a la carpeta \textit{Modo Motor}, se encontrarán los siguiente datos de prueba almacenados: \\ 
+\begin{figure}[htbp]
+\hspace*{3.5cm} 
+\includegraphics[scale=0.70]{datos_motor}
+\caption{Datos de prueba almacenados en carpeta motor}
+\end{figure}
+
+Como se puede observar, los datos del registro de la base de datos de la aplicación son almacenados directamente en un archivo .csv listo para ser observados en excel y empezar con el análisis de datos.  Las gráficas por su parte son imagenes en formato .png  \\
+
+Cabe señalar que tanto los archivos .csv como los archivos de imagen .png no serán sobreescritos si se vuelve a exportar los datos, ya que al final del nombre del archivo se le agrega un valor numérico para poder crear otros archivos con diferente id. \\ 
+\newpage
+Por seguridad, al querer salir de la ventana principal del modo motor, aparecerá el siguiente mensaje: 
+\begin{figure}[htbp]
+\hspace*{2.8cm} 
+\includegraphics[scale=0.48]{Security}
+\caption{Salida no permitida cuando la prueba esta activa}
+\end{figure}
+
+\newpage
+
+Para poder salir del modo motor, la prueba debe de estar detenida, esto se logra al presionar el botón \textit{Detener prueba}, una vez que se presione el botón la prueba se detiene, manteniendo los datos gráficados y los registros de datos. \\ 
+
+\begin{figure}[htbp]
+\hspace*{1.8cm} 
+\includegraphics[scale=0.58]{end_test2}
+\caption{Prueba terminada}
+\end{figure}
+
+Una vez que se encuentra detenida la prueba, el usuario puede cambiar el modo del freno Warner Electric y volver a reiniciar la prueba o también puede salir del modo motor para regresar a la ventana principal. \\
+\newpage
+\subsection{Modo Generador}
+
+Una vez que regresamos  a la ventana principal, ahora vamos a ingresar al modo generador de igual forma como lo hicimos con el modo motor. \\ 
+
+
+Cuando se ingresa al modo generador, la ventana que aparecerá en primer instancia será la pestaña \textit{Service motion: }\\ 
+
+\begin{figure}[htbp]
+\hspace*{0.8cm} 
+\includegraphics[scale=0.51]{First_screen_gen_mode}
+\caption{Ventana principal modo generador}
+\end{figure}
+
+En esta pestaña el usuario debe de configurar todos los parámetros de configuración del servomotor, ya que resulta  primordial  configurar de inicio  el servomotor antes de poder iniciar movimientos. \\ 
+
+Tomando en cuenta lo anterior, si el usuario intenta ir a la pestaña denominada \textit{Monitor Modbus} donde es ahí donde es posible iniciar movimientos del servomotor, le saldrá un aviso y se bloquea el acceso a esa pestaña: \\ 
+\begin{figure}[htbp]
+\hspace*{5.8cm} 
+\includegraphics[scale=0.78]{no_seet_params}
+\caption{Bloquear acceso a Monitor Modbus}
+\end{figure}
+\newpage
+\subsubsection{Configuracion en pestaña ``Service motion''}
+Como se puede apreciar  en la pestaña \textit{Service motion}  se tiene una ilustración detallada de los tipos de movimiento que el usuario puede seleccionar, en ella se muestra como es la forma del tipo de movimiento y los ajustes que puede configurar el usuario para cada tipo de movimiento. \\ 
+
+En el grupo \textit{Manual} es donde el usuario debe de seleccionar y añadir valores númericos para poder configurar adecuadamente el servomotor. \\
+
+En primer instancia se tiene una lista desplegable del \textit{Tipo de movimientos} en esta lista se encuentran los tipos: \\ 
+\begin{itemize}
+\item \texttt{Continous}
+\item \texttt{Pulse}
+\item \texttt{Reversing}
+\end{itemize}
+
+Que de acuerdo al tipo de movimiento que el usuario seleccione, se habilitarán o deshabilitarán campos de configuración para dicho tipo de movimiento que se ha seleccionado. \\
+
+En los límites de \textit{velocidad 1 y 2}, el usuario debe de ingresar un dato numérico, el cual este dato tiene un rango, entre 50 a 1500, el cual es la velocidad en RPM que va ejercer el servomotor. Por precaución, si el rango es superado, se pone un valor numérico por default (la velocidad más baja) para prevenir accidentes. \\ 
+
+En los campos de \textit{aceleración y desaceleración}  sucede lo mismo que con las velocidades, aquí el usuario debe de ingresar los valores numéricos que desea para dichos parámetros, con la condición de que no pueden superar las velocidades que ha asignado anteriormente el usuario esto para prevenir datos ilógicos, por ejemplo si el usuario ingresa una velocidad de 150 RPM y una aceleración de 850 , suena  algo ilógico y puede suceder algún accidente, por lo cual se estableció esta condición para que los datos sean lógicos. \\ 
+
+En los campos de \textit{timer1 y timer2} son los tiempos que los tipos de movimiento utilizan para ejecutar la prueba, estos de igual formar el usuario debe de ingresar el dato numérico el cual rago es de 100 mS a 60000 mS (60 segundos). \\
+
+Por último se tiene otra lista desplegable, la denominada \textit{Sentido de giro}, esta lista solo contiene dos elementos: \\
+\begin{itemize}
+\item \texttt{Horario}
+\item \texttt{Antihorario}
+\end{itemize}
+
+Como es de suponer, aquí el usuario debe de establecer el sentido de giro que desea para el servomotor. \\  
+ \newpage
+ Por otro lado, en el grupo \textit{Recetario de movimientos} se observan dos botones: \\
+ \begin{itemize}
+ \item \textit{Guardar ajustes}
+ \item \textit{Cargar ajustes}
+ \end{itemize}
+ Se observa que en primer instancia se tiene el botón \textit{Guardar ajustes} deshabilitado y el botón \textit{Cargar Ajustes} se encuentra habilitado. \\ 
+ 
+El botón \textit{Cargar ajustes} le permite al usuario cargar un archivo de configuración previa que realizó en una sesión anterior a la que en este momento nos encontramos, ese archivo de configuración lo crea el botón \textit{Guardar Ajustes}, el archivo que se crea es un text file y contiene todos los datos y selecciones que el usuario realizó en el grupo \textit{Manual}, el cual con ese archivo y con el botón \textit{Cargar Ajustes}, vuelve a dejar todo el grupo \textit{Manual} como lo dejó aquella vez el usuario. \\
+
+Únicamente el usuario debe de confirmar configuración presionando el botón \textit{Set Settings}, este botón envía la cadena de datos de configuración (frame) al sistema de control (Arduino), y el sistema de control envía la configuración al servodrive mediante Modbus TCP/IP.\\ 
+
+El botón \textit{Set settings} también ejecuta una validación de datos de todos los campos, el cual revisa que los datos ingresados sean válidos para la configuración, de tener algún dato incorrecto, saldrá un mensaje en pantalla diciendo \textit{Error en la entrada de datos} y el usuario debe de revisar cual es el dato erróneo. \\
+
+Volviendo al grupo \textit{Manual}, una vez que el usuario configuró todo lo que necesita para la prueba, el usuario debe de presionar el botón \textit{Set settings} para que comience la validación de datos y si todo es correcto mandé la configuración al servodrive.\\
+
+Cuando son válidos los datos que ingresó el usuario, el botón \textit{Guardar ajustes} se habilita y el usuario puede guardar si lo desea los parámetros que definió anteriormente. Cuando se presiona saldrá el siguiente aviso: \\ 
+
+\begin{figure}[htbp]
+\hspace*{5.8cm} 
+\includegraphics[scale=0.78]{parametros_save}
+\caption{Parámetros guardados en text file}
+\end{figure}
+
+El cual archivo text file ha sido almacenado en la carpeta de recopilación de datos \textit{Modo Generador}
+\newpage
+\subsubsection{Cargar archivos txt file}
+Cuando se requiera cargar un archivo txt file de configuración previa, se debe de presionar el botón \textit{Cargar Ajustes} y se abrirá la siguiente ventana: \\ 
+
+\begin{figure}[htbp]
+\hspace*{1.2cm} 
+\includegraphics[scale=0.48]{buscar_archivo}
+\caption{Ventana para buscar el archivo txt file y cargar ajustes}
+\end{figure}
+
+En esta ventana se debe de buscar el archivo txt file de los parámetros guardados anteriormente y  presionar el botón \textit{Open}, haciendo lo anterior el grupo \textit{Manual} será llenado automáticamente de acuerdo al contenido del text file. \\ 
+
+Únicamente el usuario deberá de presionar el botón \textit{Set settings} para validar los campos de configuración y si todo es correcto configurar los registros del servodrive. \\ 
+\newpage
+\subsubsection{Pestaña ``Monitor Modbus'' }
+Una vez que se ingresaron los datos de configuración y se hayan enviado satisfactoriamente estos datos de configuración al sistema de control, se podrá acceder a la pestaña \textit{Monitor Modbus}\\
+
+La ventana de esta pestaña es la siguiente: \\ 
+\begin{figure}[htbp]
+\hspace*{0.2cm} 
+\includegraphics[scale=0.55]{Monitor_modbus}
+\caption{Ventana principal pestaña  ``Monitor Modbus'' }
+\end{figure}
 \end{document}
+
