@@ -6,6 +6,8 @@
 \usepackage[margin=2cm]{geometry}
 \setlength{\parindent}{0mm}
 \usepackage{array}
+\usepackage{float}
+\usepackage{hyperref}
 
 
 \begin{document} %inicio de documento
@@ -18,7 +20,7 @@
 
 \begin{center} %logo tecmm zapopan 
 \begin{figure}[htbp]
-\hspace*{1.8cm} 
+\hspace*{2.0cm} 
 \includegraphics[scale=0.39]{Tec_logo}
 \end{figure}
 
@@ -44,34 +46,49 @@
 \newpage %se agrega nueva estructura
 \pagenumbering{Roman}
 \section*{Agradecimientos}
-En primer lugar le agradezco a Dios por darme la vida, por darme el entusiasmo de aprender, por darme las ganas de conocer nuevas cosas y por llenar mi cabeza de curiosidad. \\
+En primer lugar le agradezco a Dios por darme la vida, por darme el entusiasmo de aprender, por darme las ganas de conocer nuevas cosas y por llenar mi mente de curiosidad. \\
 
 Ya que es ahí, donde nace el aprendizaje y el conocimiento, desde la curiosidad. \\
 
-Le agradezco a mi familia por siempre brindar el apoyo necesario para mis estudios y por alentarme en el camino. \\
+Le agradezco a mi familia; a mi papá, a mi mamá y hermana por siempre apoyarme en superarme como persona, así como también el apoyo que me dieron en el camino de mis estudios. \\
+
+
 
 Le agradezco a todos los  profesores que conocí a lo largo de mis estudios, por compartirme de sus conocimientos y experiencias que me fueron de utilidad para forjar mi pensamiento que hoy en día tengo, y que me ha ayudando bastante para crecer como persona. \\
 
 
-%Gracias al Tecnológico José Mario Molina Pasquel y Henríquez Campus Zapopan, por impartirme la carrera de Ingeniería en %electrónica, fueron años de estudio pero todo ha valido la pena. \\
+Gracias al Tecnológico José Mario Molina Pasquel y Henríquez Campus Zapopan, por impartirme la carrera de ingeniería en electrónica, y tener excelentes profesores que me enseñaron cosas increíbles, compartí el camino con ustedes del año 2016 al 2021, y todo esto ha valido la pena. \\
 
-%Gracias a CIATEQ Zapopan por aceptarme como becario para realizar mi residencia profesional en el laboratorio de eficiencia %energética. \\ 
+Gracias a CIATEQ Zapopan por aceptarme como practicante para realizar mi residencia profesional en el laboratorio de eficiencia energética. \\ 
 
-%Gracias también a la Universidad de Guadalajara (CUCEI) que fue donde inicié esta trayectoria de ingeniería. \\  \\
+Gracias también a la Universidad de Guadalajara (CUCEI) que fue ahí donde inicié mi trayectoria en ingeniería electrónica y forma parte de mis experiencias de desarrollo profesional. \\
 
-Fueron muchas personas que estuvieron conmigo a lo largo de este camino; familia, profesores, compañeros, a todos ellos les doy las gracias por formar parte de esto. \\
+Fueron muchas personas que estuvieron conmigo a lo largo de este camino; familia, profesores, compañeros y amigos. A todos ellos les doy las gracias por formar parte de esto. \\
 
 \textbf{¡GRACIAS!}
  
 \newpage
 \section*{Resumen}
+El proyecto se comienza el día 25 de Febrero 2021, dando como parte inicial el diseño y el análisis del proyecto, observando siempre la mejor manera de desarollarlo.\\
+
+El objetivo del proyecto de residencia es el incorporar un sistema de control para poder así tener el control de los dispositivos industriales que se encuentran el banco de pruebas. \\
+
+Este banco de pruebas CIATEQ Zapopan lo ha comenzado a desarrollar, pero no cuentan con un sistema control para ejecutar pruebas de manera automática, en el estado en que se encontró este banco de pruebas únicamente puede funcionar conectando los dispositivos de manera independiente. \\
+
+Es por ello que el fin de este proyecto es el desarrollar el sistema de control para dicho banco de pruebas, así como también el desarrollo de una interfaz gráfica (GUI) que permita a los investigadores de CIATEQ Zapopan la observación, monitoreo y adquisición de datos de la prueba. \\
+
+El resultado final del proyecto de residencia se obtuvo el día 13 de Julio 2021,  cumpliendo con los requisitos que se definieron en el diseño y bosquejo inicial del proyecto. \\
+ 
 \newpage
 \pagenumbering{arabic}
-\tableofcontents %creación indice 
-\newpage % nueva página 
-\listoffigures %indide de figuras
-\newpage
-\listoftables %indice de tablas
+{
+  \hypersetup{hidelinks}
+\tableofcontents %creación indice
+} 
+%\newpage % nueva página 
+%\listoffigures %indide de figuras
+%\newpage
+%\listoftables %indice de tablas
 \newpage
 \section{Tabla de datos de residencia profesional}
 \begin{table}[!h]
@@ -144,7 +161,7 @@ Es por ello que desde aquel punto en la historia, hasta la fecha, hablar de máq
 
 Actualmente, investigadores del CIATEQ Jalisco  se encuentran trabajando en el estudio e investigación de las máquinas eléctricas, por lo cual surge la necesidad de desarrollar un banco de pruebas para motores y generadores eléctricos, donde se permita al investigador de CIATEQ recolectar datos de respuesta y comportamiento.\\
 
-De esta manera, los investigadores del CIATEQ Jalisco tendrán al alcancé una mesa de pruebas, donde se podrá obtener la información de respuesta que necesiten, documentarla y así poder llegar  a nuevos desarrollos innovadores para máquinas eléctricas en el futuro. \\
+De esta manera, los investigadores del CIATEQ Jalisco tendrán al alcance una mesa de pruebas, donde se podrá obtener la información de respuesta que necesiten, documentarla y así poder llegar  a nuevos desarrollos innovadores para máquinas eléctricas en el futuro. \\
 
 \newpage 
 \section{Objetivos}
@@ -187,10 +204,9 @@ Por el lado del modo motor, se pretende el tomar datos de sensores y que sean vi
 
 %Como se observa se habla de dos modos de operación, donde por un lado  el servomotor kollmorgen se encuentra habilitado y los %sensores del sistema, y por el otro lado se inhabilita servomotor Kollmorgen y únicamente se encuentran los sensores %habilitados. \\[0.8mm]
 
-
 Las limitación del proyecto es el tiempo que se ha dado para desarrollar la residencia profesional, ya que se comienza de cero este proyecto y se debe de dedicar tiempo en lectura, pruebas y desarrollo, así como también tiempo a dedicar para la depuración de errores que surjan en los programas. \\[0.8mm]
 
-Por esta limitación se pretende llegar por lo menos a tener un programa de control y de software estructurados,  donde el modo generador este funcionando, que se ejecute algún movimiento de servomotor y se obtengan los respectivos datos de interés. \\[2.5mm]
+Por esta limitación se pretende llegar a por lo menos  tener un programa de control y de software estructurados,  donde el modo generador se encuentre funcionando, que se ejecute algún movimiento de servomotor y se obtengan los respectivos datos de interés. \\[2.5mm]
 Si existe la posibilidad de alargar fechas de entrega en residencia profesional, será posible tener también el modo motor en el sistema y completar la integración control - software. \\
 
 \newpage
@@ -1536,6 +1552,23 @@ Por último, se agrega la primer interfaz gráfica que se desarrolló para comen
 \caption{Primer GUI beta del proyecto de residencia}
 \end{figure}
 \newpage
+\subsection{Sistema de control de versiones}
+Todo proyecto de programación requiere dar uso a un sistema de control de versiones, ya que en proyectos de gran magnitud es necesario llevar el registro de cambios a través de una línea de tiempo, esta a su vez va registrando los cambios que el desarrollador ha realizado en el proyecto. \\
+
+Si en dado caso, se necesita modificar una parte de código, se genera una nueva rama en el proyecto y puede desarrollarse dicho código nuevo sin modificar el original. Posteriormente si esa modificación de código o nuevo bloque de funcionalidad se necesita integrar al desarrollo original se puede realizar sin problema. \\
+
+Por lo tanto un buen manejo de proyecto orientado al desarrollo de alguna aplicación que involucre lenguajes de programación es una buena práctica el implementar un sistema de con trol de versiones. \\
+
+Para el desarrollo de mi proyecto de residencia profesional he involucrado a \textit{Git} y \textit{Github} como sistema de control de versiones para crear una línea de tiempo donde pueda ver los cambios realizados y si en algún momento necesito regresar a una versión anterior poderlo hacerlo y no comprometer todo el proyecto original. \\ 
+
+\begin{figure}[htbp]
+\hspace*{1.0cm} 
+\includegraphics[scale=0.95]{logo_git}
+\caption{Tecnologías usadas para el control de versiones}
+\end{figure}
+
+
+\newpage
 \section{Resultados}
 En esta sección se abordan los resultados obtenidos con el desarrollo del proyecto de residencia. \\
 
@@ -1625,6 +1658,8 @@ Si solamente el usuario  ingresó a un solo modo de operación, entonces solamen
 Dentro de estas carpetas se encontrarán los datos que el usuario guarde cuando se encuentre ejecutando  pruebas en algún modo de operación, más adelante se observará el contenido de estas carpetas. \\
 \newpage
 \subsection{Modo Motor}
+En este apartado se explica la ventana del \textit{Modo Motor}.
+\subsubsection{Vista ventana modo motor}
 Cuando se ingresa al modo motor, se despliega la siguiente ventana: \\ 
 
 \begin{figure}[htbp]
@@ -1632,6 +1667,7 @@ Cuando se ingresa al modo motor, se despliega la siguiente ventana: \\
 \includegraphics[scale=0.50]{Motor_form}
 \caption{Ventana del modo motor}
 \end{figure}
+\subsubsection{Modos de operación Freno Warner Electric}
 Se puede apreciar en esta ventana un control dedicado para el modo del freno Warner Electric, puede ser configurado en modo \textit{Freno liberado} o \textit{Freno ajustado}, únicamente se selecciona el modo deseado y se oprime el botón \textit{Set}. \\ 
 
 \begin{figure}[htbp]
@@ -1643,10 +1679,8 @@ Se puede apreciar en esta ventana un control dedicado para el modo del freno War
 Como se vio en la definición del proyecto, este modo de operación es una pantalla de monitoreo para observar las señales de respuesta que nos entrega el sensor Futek TRS605, además de eso, en modo offline se podrá cambiar el modo de operación del freno, sea en modo ajustado o en modo liberado. 
 
 \newpage
-
+\subsubsection{Inicializar prueba de monitoreo}
 Para comenzar con la prueba, únicamente se debe de oprimir en el botón \textit{Iniciar prueba} para comenzar a gráficar las señales del sensor Futek: \\ 
-
-
 \begin{figure}[htbp]
 \hspace*{2.1cm} 
 \includegraphics[scale=0.57]{init_test}
@@ -1663,14 +1697,15 @@ Conforme el motor que esta bajo prueba comience a generar movimiento, se irán g
 \caption{Graficando valores de sensor Futek TRS605}
 \end{figure}
  
-Cuando se oprime el botón \textit{Iniciar prueba}, esta se mantiene activa , graficando cualquier valor que el sensor Futek proporcione, y si el motor bajo prueba ya no se encuentra realizando ningún movimiento, la prueba continuará activa hasta que se presione el botón \textit{Detener prueba}, una vez presionando ese botón se deja de gráficar los datos.\\
+Cuando se oprime el botón \textit{Iniciar prueba}, ésta se mantiene activa , graficando cualquier valor que el sensor Futek proporcione, y si el motor bajo prueba ya no se encuentra realizando ningún movimiento, la prueba continuará activa hasta que se presione el botón \textit{Detener prueba}, una vez presionando ese botón se deja de gráficar los datos.\\
 
 Una forma de comprobar si la prueba esta activa o no, es por el indicador de color que está en el grupo llamado \textit{Monitoreo}, ese indicador tendrá color rojo cuando la prueba esta detenida y color verde cuando la prueba se encuentra iniciada. \\
 
-También en ese mismo grupo de monitoreo, se muestra númericamente los valores de velocidad y torque. \\ 
+También en este mismo grupo de monitoreo, se muestra numéricamente los valores de velocidad y torque. \\ 
  
 \newpage
-Cuando se presiona el botón \textit{Guardar Gráficas} aparece el siguiente aviso: \\ 
+\subsubsection{Recopilación de datos Modo Motor}
+Al presionar el botón \textit{Guardar Gráficas} aparece el siguiente aviso: \\ 
 \begin{figure}[htbp]
 \hspace*{6.8cm} 
 \includegraphics[scale=0.65]{graphs}
@@ -1696,12 +1731,10 @@ Se puede observar los registros de datos almacenados en una pequeña base de dat
 \caption{Exportación de datos}
 \end{figure}
 
-Los datos de prueba que el usuario exporte, serán almacenados dentro de la carpeta \textit{Modo Motor} en la ruta de la carpeta \textit{Datos pruebas} como se explicó en el apartado \textit{Carpeta de recopilación de datos.} \\ 
-
-Por lo tanto, al acceder a la carpeta \textit{Modo Motor}, se encontrarán los siguiente datos de prueba almacenados: \\ 
+Los datos de prueba que el usuario exporte, serán almacenados dentro de la carpeta \textit{Modo Motor} en la ruta de la carpeta \textit{Datos pruebas} como se explicó en el apartado \textit{Carpeta de recopilación de datos.} Por lo tanto, al acceder a la carpeta \textit{Modo Motor}, se encontrarán los siguiente datos de prueba almacenados: \\ 
 \begin{figure}[htbp]
 \hspace*{3.5cm} 
-\includegraphics[scale=0.70]{datos_motor}
+\includegraphics[scale=0.70]{datos2}
 \caption{Datos de prueba almacenados en carpeta motor}
 \end{figure}
 
@@ -1709,19 +1742,20 @@ Como se puede observar, los datos del registro de la base de datos de la aplicac
 
 Cabe señalar que tanto los archivos .csv como los archivos de imagen .png no serán sobreescritos si se vuelve a exportar los datos, ya que al final del nombre del archivo se le agrega un valor numérico para poder crear otros archivos con diferente id. \\ 
 \newpage
+\subsubsection{Seguridad}
 Por seguridad, al querer salir de la ventana principal del modo motor, aparecerá el siguiente mensaje: 
 \begin{figure}[htbp]
-\hspace*{2.8cm} 
-\includegraphics[scale=0.48]{Security}
-\caption{Salida no permitida cuando la prueba esta activa}
+\hspace*{6.1cm} 
+\includegraphics[scale=0.75]{Security}
+\caption{Salida no permitida cuando la prueba está activa}
 \end{figure}
 
-\newpage
+%\newpage
 
 Para poder salir del modo motor, la prueba debe de estar detenida, esto se logra al presionar el botón \textit{Detener prueba}, una vez que se presione el botón la prueba se detiene, manteniendo los datos gráficados y los registros de datos. \\ 
 
-\begin{figure}[htbp]
-\hspace*{1.8cm} 
+\begin{figure}[H]
+\hspace*{1.1cm} 
 \includegraphics[scale=0.58]{end_test2}
 \caption{Prueba terminada}
 \end{figure}
@@ -1801,7 +1835,7 @@ Cuando son válidos los datos que ingresó el usuario, el botón \textit{Guardar
 \caption{Parámetros guardados en text file}
 \end{figure}
 
-El cual archivo text file ha sido almacenado en la carpeta de recopilación de datos \textit{Modo Generador}
+El cual el archivo text file ha sido almacenado en la carpeta de recopilación de datos \textit{Modo Generador}
 \newpage
 \subsubsection{Cargar archivos txt file}
 Cuando se requiera cargar un archivo txt file de configuración previa, se debe de presionar el botón \textit{Cargar Ajustes} y se abrirá la siguiente ventana: \\ 
@@ -1825,5 +1859,296 @@ La ventana de esta pestaña es la siguiente: \\
 \includegraphics[scale=0.55]{Monitor_modbus}
 \caption{Ventana principal pestaña  ``Monitor Modbus'' }
 \end{figure}
+
+Como se puede observar, en esta ventana se tienen 5 grupos que se deben de conocer. \\
+
+De lado izquierdo tenemos el grupo de \textit{Monitor Señales Modbus} el cual en este campo se puede apreciar los valores numéricos del valor de velocidad y torque, así como también se puede observar indicadores del estado actual del servodriver y el estado actual del paro de emergencia. \\
+
+También se observa un velocímetro el cual también cambia de estado de acuerdo al valor de la velocidad. \\
+
+En la parte central tenemos el grupo de \textit{Datos gráficados}, donde ahí se encuentran los campos de gráficas para los datos de velocidad y torque. \\ 
+
+Por la parte derecha se observa el grupo \textit{Valores setteados} en este campo se muestran los valores que el usuario previamente definió en la pestaña \textit{Service motion}. \\ 
+
+\newpage
+Por la parte inferior izquierda se muestra el grupo \textit{Control} el cual este campo esta dedicado para el control propio de del servomotor Kollmorgen. Los botones que se muestran son: \\
+
+\begin{itemize}
+\item \textit{Axis En}
+\item \textit{Start}
+\end{itemize}
+
+\paragraph*{Axis En}\leavevmode\newline
+En \textit{Axis En} se debe de presionar primeramente antes que el botón \textit{Start}, ya que este botón es el que habilita el voltaje de potencia al servomotor y empieza la oscilación para mantenerse en posición fija. \\
+
+Se puede realizar la prueba cuando \textit{Axis En} se encuentra deshabilitado, el eje del servomotor se encuentra libre, y una vez que se presione en botón \textit{Axis En} el voltaje de potencia se habilita y el eje del servomotor se encuentra fijo, no se podrá girar. \\
+
+Una vez que el usuario presione el botón \textit{Axis En} el texto sobre el botón cambia a \textit{Axis Disable} y el botón \textit{Start} se habilita para ser presionado por el usuario. \\
+
+\paragraph*{Start}\leavevmode\newline
+Cuando el botón \textit{Start} se habilita, el usuario puede presionar este  botón cuando se requiera comenzar a realizar el movimiento de acuerdo a la definición de parámetros que configuró el usuario previamente. \\ 
+
+Cuando este botón es presionado, el texto sobre el botón cambia a \textit{Stop}. \\
+
+La manera de detener el movimiento del servomotor sería a través del botón \textit{Stop} de esta manera se detiene de acuerdo a la desaceleración que definió el usuario, si se presiona el botón \textit{Axis Disable} se detiene en seco el movimiento ya que el voltaje de potencia se apaga. Esto mismo sucede al presionar el paro de emergencia que se tiene en el banco de pruebas. \\
+
+Por lo cual se recomienda que mientras se está realizando la prueba y se requiere detener el movimiento  se haga a través del botón \textit{Stop}, en dado caso de alguna situación de emergencia, presionar el paro de emergencia o \textit{Axis disable}.
+
+\subsubsection{Iniciar Prueba}
+Una vez que el usuario ya habilitó el voltaje de potencia y presionó el botón \textit{Start} el servodrive comenzará a moverse de acuerdo a la configuración asignada, se comenzará a observar en los campos de monitoreo de velocidad y torque el valor numérico y además se observará como se comienzan a gráficar los datos. \\ 
+
+Como se muestra en la siguiente imagen: \\ 
+\newpage
+
+\begin{figure}[htbp]
+\hspace*{0.1cm} 
+\includegraphics[scale=0.55]{Initi_move2}
+\caption{Inicialización de prueba }
+\end{figure}
+ 
+\begin{figure}[H]
+\hspace*{0.1cm} 
+\includegraphics[scale=0.53]{grapsh2}
+\caption{Prueba después de un margen de tiempo }
+\end{figure}
+
+\newpage
+\subsubsection{Seguridad}
+Cuando la prueba esta activa, si el usuario ingresa a la pestaña \textit{Service Motion} se observará que el campo para modificar parámetros se encuentra deshabilitado, esto sucede por que el driver (voltaje de potencia) se encuentra activo para realizar movimientos. \\
+
+Por lo tanto, como manera de precaución se deshabilita dicho campo para que no se modifiquen parámetros de movimiento cuando la prueba se encuentra activa. \\
+
+\begin{figure}[H]
+\hspace*{0.1cm} 
+\includegraphics[scale=0.53]{no_enable_settings}
+\caption{Campo manual deshabilitado mientras la prueba se encuentra activa}
+\end{figure}
+
+\vspace{18mm}
+
+
+También cuando la prueba se encuentra activa, la aplicación no permite salirte de la pantalla del \textit{Modo generador} hasta que se deshabilite el voltaje de potencia del servomotor. \\
+
+Por lo tanto, para poder salir de dicha ventana será necesario presionar el botón \textit{Stop} (si es que el movimiento se encuentra activo) y posteriormente presionar el botón \textit{Axis disable} para desactivar el voltaje de potencia y permitir la salida del modo generador. \\
+
+Como se muestra en la siguiente imagen: \\
+
+\newpage
+\begin{figure}[H]
+\hspace*{0.1cm} 
+\includegraphics[scale=0.53]{securityyy}
+\caption{Aviso de seguridad}
+\end{figure}
+
+\subsubsection{Recopilación de datos}
+Para poder exportar los datos de prueba, se observa que en la pantalla de la pestaña \textit{Monitor Modbus} se tiene un botón llamado \textit{Registro de datos}. que de igual manera que en el modo motor, al presionar dicho botón se despliega la siguiente ventana: \\
+
+\begin{figure}[H]
+\hspace*{2.3cm} 
+\includegraphics[scale=0.42]{regData}
+\caption{Tabla de registros de datos}
+\end{figure}
+\newpage
+Una vez estando en esta ventana se aprecian las tablas de registro de datos que se han estado graficando en la anterior ventana, si se desea exportar estos datos únicamente se debe de presionar en el botón  \textit{Export to CSV file} de la tabla de datos de interés. El archio .csv es guardado en la carpeta de recopilación de datos. \\ 
+
+Cuando se presiona el botón de exportación, aparecerá la siguiente ventana: \\ 
+
+\begin{figure}[H]
+\hspace*{7.3cm} 
+\includegraphics[scale=0.89]{export_data22}
+\caption{Notificación de exportación datos}
+\end{figure}
+
+También se pueden exportar las gráficas de los datos que se obtuvieron a través de la prueba, para ello es necesario presionar el botón \textit{Guardar Gráficas} y aparecerá la notificación de la exportación: \\
+
+\begin{figure}[H]
+\hspace*{7.3cm} 
+\includegraphics[scale=0.80]{save_graficas}
+\caption{Notificación de gráficas guardadas}
+\end{figure}
+
+Cabe mencionar que los botones de recopilación de datos pueden ser usados tanton con la prueba activa con la prueba desactivada. \\
+
+
+Una vez teniendo los datos exportados, estos serán encontrados en la \textit{Carpeta de recompilación de datos} que se explicó en la parte de \textit{Inicialización de aplicación y pantalla principal}. \\
+
+Dentro la carpeta \textit{Datos prueba} se debe de localizar la carpeta de la sesión donde se utilizó la aplicación para ejecutar pruebas y posterior a ello  localizar la carpeta \textit{Modo Generador}, dentro de esa carpeta se observarán los datos guardados por el usuario durante la sesión como se observa en este ejemplo: \\ 
+
+\newpage
+\begin{figure}[H]
+\hspace*{2.3cm} 
+\includegraphics[scale=0.77]{datos_gen_mode}
+\caption{Datos guardados por el usuario almacenados en carpeta}
+\end{figure}
+
+Se observa que en esta carpeta tenemos formatos de archivo .png , .csv y , .txt \\
+
+Que como se explicó anteriormente el .csv contiene todos los datos de registro y el .txt tiene los parámetros de movimiento que el usuario configuró anteriormente y exportó a un archivo .txt : \\
+
+\begin{figure}[H]
+\hspace*{6.9cm} 
+\includegraphics[scale=1.02]{txt_params}
+\caption{Datos almacenados en el archivo txt}
+\end{figure}
+
+Con este archivo .txt se puede cargar a la aplicación para obtener esa configuración, tal como se explicó en el apartado \textit{Cargar archivos txt file}.
+
+\newpage
+
+\subsection{Fotos del proyecto de residencia}
+En esta sección se adjuntan fotos del banco de pruebas a máquinas eléctricas
+
+\begin{figure}[H]
+\hspace*{2.8cm} 
+\includegraphics[scale=0.075]{servodrive}
+\caption{Servodrive Kollmorgen AKD}
+\end{figure}
+
+\begin{figure}[H]
+\hspace*{2.8cm} 
+\includegraphics[scale=0.12]{servo_lab}
+\caption{Servomotor Kollmorgen}
+\end{figure}
+\newpage
+
+\begin{figure}[H]
+\hspace*{5.7cm} 
+\includegraphics[scale=0.099]{futeksensor}
+\caption{Sensor Futek TRS605}
+\end{figure}
+\begin{figure}[H]
+\hspace*{2.8cm} 
+\includegraphics[scale=0.12]{frenoInd}
+\caption{Freno Industrial Warner Electric}
+\end{figure}
+\newpage
+\begin{figure}[H]
+\hspace*{4.2cm} 
+\includegraphics[scale=0.10]{20210308_141028}
+\caption{Driver del freno industrial Warner Electric}
+\end{figure}
+
+\begin{figure}[H]
+\hspace*{2.1cm} 
+\includegraphics[scale=0.12]{20210426_115310}
+\caption{Arduino Mega con Shield Ethernet W5100}
+\end{figure}
+\newpage
+
+\begin{figure}[H]
+\hspace*{2.6cm} 
+\includegraphics[scale=0.075]{20210426_115257}
+\caption{Red local ethernet TCP/IP}
+\end{figure}
+
+\begin{figure}[H]
+\hspace*{2.6cm} 
+\includegraphics[scale=0.075]{20210712_193613}
+\caption{Sistema de control}
+\end{figure}
+\newpage
+\begin{figure}[H]
+\hspace*{2.1cm} 
+\includegraphics[scale=0.12]{20210426_120707}
+\caption{Banco de pruebas vista frontal}
+\end{figure}
+
+\begin{figure}[H]
+\hspace*{2.1cm} 
+\includegraphics[scale=0.12]{20210611_194142}
+\caption{Banco de pruebas vista posterior}
+\end{figure}
+
+\newpage
+\begin{figure}[H]
+\hspace*{1.5cm} 
+\includegraphics[scale=0.095]{20210702_200549}
+\caption{Lugar del desarrollo del proyecto}
+\end{figure}
+
+\begin{figure}[H]
+\hspace*{1.5cm} 
+\includegraphics[scale=0.59]{20210702_191346}
+\caption{Pruebas directas en circuito}
+\end{figure}
+
+\newpage
+\section{Conclusiones}
+Mi conclusión acerca del proyecto de residencia profesional que CIATEQ Zapopan me propuso, es que con base a la evidencia anterior se logra observar que el proyecto a sido desarrollado satisfactoriamente, cumpliendo los requisitos que se establecieron al principio de la propuesta del proyecto. \\ 
+
+Fueron 5 meses el cual me dediqué al desarrollo del proyecto, siempre teniendo en mente la mejor manera de desarrollarlo. \\
+
+Gracias a los conocimientos adquiridos a lo largo de mi carrera profesional en Tec MM Zapopan, tuve la actitud y el coraje de poder encarar el proyecto y llevarlo a lo largo de  este tiempo de desarrollo,  hasta alcanzar el objetivo final.\\ 
+
+
+El desarrollo del proyecto terminó  el día 13 de Julio 2021, el cual personalmente decir las palabras  ``El proyecto a finalizado'' fue una manera increíble que no hay palabras para describirlo. \\
+
+La experiencia que me he llevado con mi residencia profesional es que la dedicación es la clave para poder lograr algo en la vida, hay que dedicarse e intentarlo las veces que sean necesarias así como también marcar los retos que has vencido y seguir adelante buscando nuevos retos que te ayuden a incrementar el conocimiento. \\
+
+El proyecto cumple con el objetivo final que se estableció al inicio, logrando la ejecución de pruebas a máquinas eléctricas a través de una aplicación de escritorio, además de tener los datos de la ejecución de prueba de una manera presentable para ser analizada posteriormente en los laboratorios de CIATEQ Zapopan. \\
+
+\newpage
+\section{Competencias aplicadas y desarrolladas}
+
+Las competencias aplicadas en el proyecto fueron: \\
+\begin{itemize}
+\item \textit{Conocimientos en programación.}
+\item \textit{Conocimiento general en ingeniería mecatrónica.} 
+\item \textit{Razonamiento lógico para resolver problemas.}
+\item \textit{Conocimiento en investigación y documentación.}
+\end{itemize}
+\vspace{1.8cm}
+Las competencias desarrolladas a lo largo del proyecto fueron: \\
+\begin{itemize}
+\item \textit{Aprender a investigar de mejor manera.} 
+\item \textit{Dedicarse a la lectura.}
+\item \textit{Deducir soluciones a problemas presentes.} 
+\item \textit{Aprender a fallar y volver a intentarlo.} 
+\item \textit{Trabajo en equipo.}
+\end{itemize}
+\newpage
+\section{Fuentes de información}
+\begin{thebibliography}{X}
+\bibitem{Baz} \textsc{KOLLMORGEN} ,
+\textit{AKD Installation Manual}, AD edition,
+EUA, October 2020.
+
+\bibitem{Baz2} \textsc{KOLLMORGEN} ,
+\textit{AKD EtherCAT Communication}, U edition,
+EUA, October 2020.
+
+\bibitem{Baz3} \textsc{KOLLMORGEN} ,
+\textit{AKD Basic Modbus Quick Start}, AU edition,
+EUA, March 2017.
+
+\bibitem{Baz4} \textsc{KOLLMORGEN} ,
+\textit{User Guide}, J edition,
+EUA, May 2013.
+
+\bibitem{Baz5} \textsc{FUTEK} ,
+\textit{NON-Contact Shaft Rotatory Torque Manual}, 10th edition,
+EUA, April 2019.
+
+
+\bibitem{Baz6} \textsc{W. BOLTON} ,
+\textit{MECATRÓNICA, Sistemas de cotrol electrónico en la ingeniería mecánica y eléctrica}, 5ta Edición,
+MX, Mayo 2013.
+
+\bibitem{Baz7} \textsc{AQUILINO RODRÍGUEZ PENIN} ,
+\textit{Sistemas SCADA}, 3ra Edición,
+España, Abril 2016.
+
+\end{thebibliography}
+
+\newpage % nueva página 
+{
+  \hypersetup{hidelinks}
+\listoffigures %indide de figuras
+}
+\newpage
+{
+  \hypersetup{hidelinks}
+\listoftables %indice de tablas
+}
 \end{document}
 

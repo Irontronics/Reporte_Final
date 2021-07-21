@@ -1,104 +1,126 @@
 \select@language {spanish}
-\contentsline {figure}{\numberline {1}{\ignorespaces Carta de aceptaci\IeC {\'o}n residencia profesional}}{8}
-\contentsline {figure}{\numberline {2}{\ignorespaces Plano del laboratorio de eficiencia energ\IeC {\'e}tica CIATEQ Zapopan }}{13}
-\contentsline {figure}{\numberline {3}{\ignorespaces Familia Arduino}}{17}
-\contentsline {figure}{\numberline {4}{\ignorespaces Pinout GPIO Raspberry Pi 3 B+}}{18}
-\contentsline {figure}{\numberline {5}{\ignorespaces Raspberry Pi 3 B+}}{19}
-\contentsline {figure}{\numberline {6}{\ignorespaces Diagrama de bloques de funciones de ESP32}}{20}
-\contentsline {figure}{\numberline {7}{\ignorespaces ESP-32}}{20}
-\contentsline {figure}{\numberline {8}{\ignorespaces Partes de un encoder}}{22}
-\contentsline {figure}{\numberline {9}{\ignorespaces Sensor de torque Futek}}{23}
-\contentsline {figure}{\numberline {10}{\ignorespaces Sensor de reacci\IeC {\'o}n}}{24}
-\contentsline {figure}{\numberline {11}{\ignorespaces Sensor de torque rotatorio}}{24}
-\contentsline {figure}{\numberline {12}{\ignorespaces Sensor del tipo rotatorio de contacto}}{25}
-\contentsline {figure}{\numberline {13}{\ignorespaces Sensor del tipo rotatorio de no contacto}}{25}
-\contentsline {figure}{\numberline {14}{\ignorespaces Logo DeviceNet}}{27}
-\contentsline {figure}{\numberline {15}{\ignorespaces Red Modbus TCP/IP}}{27}
-\contentsline {figure}{\numberline {16}{\ignorespaces Logo de PROFINET}}{28}
-\contentsline {figure}{\numberline {17}{\ignorespaces Logo de Profibus}}{29}
-\contentsline {figure}{\numberline {18}{\ignorespaces Logo de EtherCAT}}{30}
-\contentsline {figure}{\numberline {19}{\ignorespaces Ilustraci\IeC {\'o}n de una HMI}}{33}
-\contentsline {figure}{\numberline {20}{\ignorespaces Control de lazo cerrado de un servomotor}}{35}
-\contentsline {figure}{\numberline {21}{\ignorespaces Partes externas del servomotor}}{36}
-\contentsline {figure}{\numberline {22}{\ignorespaces Servomotores industriales}}{37}
-\contentsline {figure}{\numberline {23}{\ignorespaces Cronograma general del proyecto de residencia}}{38}
-\contentsline {figure}{\numberline {24}{\ignorespaces Diagrama a bloques modo motor}}{39}
-\contentsline {figure}{\numberline {25}{\ignorespaces Diagrama a bloques modo generador}}{40}
-\contentsline {figure}{\numberline {26}{\ignorespaces Dispositivos Kollmorgen en banco de pruebas}}{42}
-\contentsline {figure}{\numberline {27}{\ignorespaces Software Kollmorgen WorkBench}}{43}
-\contentsline {figure}{\numberline {28}{\ignorespaces Sensor FUTEK TRS605}}{44}
-\contentsline {figure}{\numberline {29}{\ignorespaces Terminales involucradas para dato velocidad}}{45}
-\contentsline {figure}{\numberline {30}{\ignorespaces Se\IeC {\~n}ales cuadr\IeC {\'a}ticas de encoder}}{45}
-\contentsline {figure}{\numberline {31}{\ignorespaces Terminales involucradas para dato torque}}{46}
-\contentsline {figure}{\numberline {32}{\ignorespaces Controlador y freno industrial Warner Electric}}{47}
-\contentsline {figure}{\numberline {33}{\ignorespaces Tabla l\IeC {\'o}gica de control Freno Warner Electric}}{48}
-\contentsline {figure}{\numberline {34}{\ignorespaces Red de comunicaci\IeC {\'o}n Raspberry Pi}}{50}
-\contentsline {figure}{\numberline {35}{\ignorespaces Arduino Uno con Arduino Ethernet Shield}}{52}
-\contentsline {figure}{\numberline {36}{\ignorespaces Comparativa de capacidad de memoria arduino}}{53}
-\contentsline {figure}{\numberline {37}{\ignorespaces Arduino Mega junto con Ethernet shield for arduino}}{53}
-\contentsline {figure}{\numberline {38}{\ignorespaces Se\IeC {\~n}al diferencial y se\IeC {\~n}al single ended}}{54}
-\contentsline {figure}{\numberline {39}{\ignorespaces ADC ADS1115}}{54}
-\contentsline {figure}{\numberline {40}{\ignorespaces Aplicaci\IeC {\'o}n bajo entorno MyOpenLab}}{55}
-\contentsline {figure}{\numberline {41}{\ignorespaces Logo Csharp y Microsoft NET}}{56}
-\contentsline {figure}{\numberline {42}{\ignorespaces Diagrama de bloques del proyecto}}{57}
-\contentsline {figure}{\numberline {43}{\ignorespaces Tabla de par\IeC {\'a}metros resumida}}{58}
-\contentsline {figure}{\numberline {44}{\ignorespaces Descripci\IeC {\'o}n de par\IeC {\'a}metro detallada}}{59}
-\contentsline {figure}{\numberline {45}{\ignorespaces Red Modbus TCP/IP }}{60}
-\contentsline {figure}{\numberline {46}{\ignorespaces Trama de comunicaci\IeC {\'o}n modbus TCP/IP }}{60}
-\contentsline {figure}{\numberline {47}{\ignorespaces C\IeC {\'o}digos de funciones para Modbus TCP/IP }}{61}
-\contentsline {figure}{\numberline {48}{\ignorespaces IPs establecidas para el proyecto }}{62}
-\contentsline {figure}{\numberline {49}{\ignorespaces Red local para realizar prueba de comunicaci\IeC {\'o}n}}{62}
-\contentsline {figure}{\numberline {50}{\ignorespaces Respuesta al Ping por parte de servodrive}}{63}
-\contentsline {figure}{\numberline {51}{\ignorespaces Configuraci\IeC {\'o}n para leer DIN MODE}}{63}
-\contentsline {figure}{\numberline {52}{\ignorespaces Respuesta al leer registro 122 DIN MODE}}{64}
-\contentsline {figure}{\numberline {53}{\ignorespaces Tr\IeC {\'a}fico de comunicaci\IeC {\'o}n}}{64}
-\contentsline {figure}{\numberline {54}{\ignorespaces Configuraci\IeC {\'o}n para escritura de registro}}{65}
-\contentsline {figure}{\numberline {55}{\ignorespaces Tr\IeC {\'a}fico de datos en Modbus Poll}}{65}
-\contentsline {figure}{\numberline {56}{\ignorespaces Tr\IeC {\'a}fico de datos mediante WireShark}}{66}
-\contentsline {figure}{\numberline {57}{\ignorespaces Registros de memoria para la configuraci\IeC {\'o}n del movimiento}}{67}
-\contentsline {figure}{\numberline {58}{\ignorespaces Trama dise\IeC {\~n}ada para el env\IeC {\'\i }o de paquete de configuraci\IeC {\'o}n}}{67}
-\contentsline {figure}{\numberline {59}{\ignorespaces Registros servodrive para monitereo en GUI}}{67}
-\contentsline {figure}{\numberline {60}{\ignorespaces Trama de datos para monitorear en GUI}}{68}
-\contentsline {figure}{\numberline {61}{\ignorespaces Registros de control de movimiento y habilitaci\IeC {\'o}n}}{68}
-\contentsline {figure}{\numberline {62}{\ignorespaces Funciones Modbus que soporta librer\IeC {\'\i }a}}{69}
-\contentsline {figure}{\numberline {63}{\ignorespaces Leer registro 1055 (DRV.HWNABLE)}}{69}
-\contentsline {figure}{\numberline {64}{\ignorespaces Escribir en registro 758 (SM.V1)}}{69}
-\contentsline {figure}{\numberline {65}{\ignorespaces Diagrama de red implementada para el proyecto}}{70}
-\contentsline {figure}{\numberline {66}{\ignorespaces Parte del c\IeC {\'o}digo de control para lectura de registros Servodrive }}{70}
-\contentsline {figure}{\numberline {67}{\ignorespaces Parte del c\IeC {\'o}digo de la escritura de registros servodrive }}{71}
-\contentsline {figure}{\numberline {68}{\ignorespaces Bloque de c\IeC {\'o}digo optmizado para lectura de registro modbus}}{72}
-\contentsline {figure}{\numberline {69}{\ignorespaces Parte del c\IeC {\'o}digo del encoder Futek para obtener dato de velocidad}}{73}
-\contentsline {figure}{\numberline {70}{\ignorespaces Registros del microcontrolador AtMega2560 para interrupciones}}{74}
-\contentsline {figure}{\numberline {71}{\ignorespaces Conexionado del m\IeC {\'o}dulo ADS115}}{74}
-\contentsline {figure}{\numberline {72}{\ignorespaces Configuraci\IeC {\'o}n e inicializaci\IeC {\'o}n del m\IeC {\'o}dulo ADS1115}}{75}
-\contentsline {figure}{\numberline {73}{\ignorespaces Obtener lectura de la se\IeC {\~n}al anal\IeC {\'o}gica}}{75}
-\contentsline {figure}{\numberline {74}{\ignorespaces Filtro mediante software para estabilizar lecturas de se\IeC {\~n}al}}{75}
-\contentsline {figure}{\numberline {75}{\ignorespaces Tabla l\IeC {\'o}gica de control Freno Warner Electric}}{76}
-\contentsline {figure}{\numberline {76}{\ignorespaces Circuito de conversi\IeC {\'o}n nivel l\IeC {\'o}gico 5V - 12V}}{76}
-\contentsline {figure}{\numberline {77}{\ignorespaces Definici\IeC {\'o}n de salidas para Freno Warner Electric}}{77}
-\contentsline {figure}{\numberline {78}{\ignorespaces C\IeC {\'o}digo implementado para el Freno Warner Electric}}{77}
-\contentsline {figure}{\numberline {79}{\ignorespaces Primer GUI beta del proyecto de residencia}}{78}
-\contentsline {figure}{\numberline {80}{\ignorespaces Icono de la aplicaci\IeC {\'o}n}}{79}
-\contentsline {figure}{\numberline {81}{\ignorespaces Pantalla principal de la aplicaci\IeC {\'o}n}}{79}
-\contentsline {figure}{\numberline {82}{\ignorespaces GUI se conect\IeC {\'o} satisfactoriamente con sistema de control}}{80}
-\contentsline {figure}{\numberline {83}{\ignorespaces GUI no logr\IeC {\'o} conectarse con el sistema de control}}{80}
-\contentsline {figure}{\numberline {84}{\ignorespaces Habilitaci\IeC {\'o}n de modos de operaci\IeC {\'o}n banco de pruebas}}{80}
-\contentsline {figure}{\numberline {85}{\ignorespaces Selecci\IeC {\'o}n de modo de prueba}}{81}
-\contentsline {figure}{\numberline {86}{\ignorespaces Carpeta general ``Datos pruebas'' en disco local C}}{81}
-\contentsline {figure}{\numberline {87}{\ignorespaces Carpeta de sesi\IeC {\'o}n}}{82}
-\contentsline {figure}{\numberline {88}{\ignorespaces Carpeta de sesi\IeC {\'o}n}}{82}
-\contentsline {figure}{\numberline {89}{\ignorespaces Ventana del modo motor}}{83}
-\contentsline {figure}{\numberline {90}{\ignorespaces Cambiar de modo el Freno Industrial Warner Electric}}{83}
-\contentsline {figure}{\numberline {91}{\ignorespaces Inicio de prueba modo motor}}{84}
-\contentsline {figure}{\numberline {92}{\ignorespaces Graficando valores de sensor Futek TRS605}}{85}
-\contentsline {figure}{\numberline {93}{\ignorespaces Aviso de exportaci\IeC {\'o}n de gr\IeC {\'a}ficas}}{86}
-\contentsline {figure}{\numberline {94}{\ignorespaces Ventana de registro de datos}}{86}
-\contentsline {figure}{\numberline {95}{\ignorespaces Exportaci\IeC {\'o}n de datos}}{87}
-\contentsline {figure}{\numberline {96}{\ignorespaces Datos de prueba almacenados en carpeta motor}}{87}
-\contentsline {figure}{\numberline {97}{\ignorespaces Salida no permitida cuando la prueba esta activa}}{88}
-\contentsline {figure}{\numberline {98}{\ignorespaces Prueba terminada}}{89}
-\contentsline {figure}{\numberline {99}{\ignorespaces Ventana principal modo generador}}{90}
-\contentsline {figure}{\numberline {100}{\ignorespaces Bloquear acceso a Monitor Modbus}}{90}
-\contentsline {figure}{\numberline {101}{\ignorespaces Par\IeC {\'a}metros guardados en text file}}{92}
-\contentsline {figure}{\numberline {102}{\ignorespaces Ventana para buscar el archivo txt file y cargar ajustes}}{93}
-\contentsline {figure}{\numberline {103}{\ignorespaces Ventana principal pesta\IeC {\~n}a ``Monitor Modbus'' }}{94}
+\contentsline {figure}{\numberline {1}{\ignorespaces Carta de aceptaci\IeC {\'o}n residencia profesional}}{5}{figure.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Plano del laboratorio de eficiencia energ\IeC {\'e}tica CIATEQ Zapopan }}{10}{figure.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Familia Arduino}}{14}{figure.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces Pinout GPIO Raspberry Pi 3 B+}}{15}{figure.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Raspberry Pi 3 B+}}{16}{figure.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces Diagrama de bloques de funciones de ESP32}}{17}{figure.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces ESP-32}}{17}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Partes de un encoder}}{19}{figure.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Sensor de torque Futek}}{20}{figure.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Sensor de reacci\IeC {\'o}n}}{21}{figure.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces Sensor de torque rotatorio}}{21}{figure.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Sensor del tipo rotatorio de contacto}}{22}{figure.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces Sensor del tipo rotatorio de no contacto}}{22}{figure.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces Logo DeviceNet}}{24}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Red Modbus TCP/IP}}{24}{figure.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces Logo de PROFINET}}{25}{figure.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces Logo de Profibus}}{26}{figure.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces Logo de EtherCAT}}{27}{figure.18}
+\contentsline {figure}{\numberline {19}{\ignorespaces Ilustraci\IeC {\'o}n de una HMI}}{30}{figure.19}
+\contentsline {figure}{\numberline {20}{\ignorespaces Control de lazo cerrado de un servomotor}}{32}{figure.20}
+\contentsline {figure}{\numberline {21}{\ignorespaces Partes externas del servomotor}}{33}{figure.21}
+\contentsline {figure}{\numberline {22}{\ignorespaces Servomotores industriales}}{34}{figure.22}
+\contentsline {figure}{\numberline {23}{\ignorespaces Cronograma general del proyecto de residencia}}{35}{figure.23}
+\contentsline {figure}{\numberline {24}{\ignorespaces Diagrama a bloques modo motor}}{36}{figure.24}
+\contentsline {figure}{\numberline {25}{\ignorespaces Diagrama a bloques modo generador}}{37}{figure.25}
+\contentsline {figure}{\numberline {26}{\ignorespaces Dispositivos Kollmorgen en banco de pruebas}}{39}{figure.26}
+\contentsline {figure}{\numberline {27}{\ignorespaces Software Kollmorgen WorkBench}}{40}{figure.27}
+\contentsline {figure}{\numberline {28}{\ignorespaces Sensor FUTEK TRS605}}{41}{figure.28}
+\contentsline {figure}{\numberline {29}{\ignorespaces Terminales involucradas para dato velocidad}}{42}{figure.29}
+\contentsline {figure}{\numberline {30}{\ignorespaces Se\IeC {\~n}ales cuadr\IeC {\'a}ticas de encoder}}{42}{figure.30}
+\contentsline {figure}{\numberline {31}{\ignorespaces Terminales involucradas para dato torque}}{43}{figure.31}
+\contentsline {figure}{\numberline {32}{\ignorespaces Controlador y freno industrial Warner Electric}}{44}{figure.32}
+\contentsline {figure}{\numberline {33}{\ignorespaces Tabla l\IeC {\'o}gica de control Freno Warner Electric}}{45}{figure.33}
+\contentsline {figure}{\numberline {34}{\ignorespaces Red de comunicaci\IeC {\'o}n Raspberry Pi}}{47}{figure.34}
+\contentsline {figure}{\numberline {35}{\ignorespaces Arduino Uno con Arduino Ethernet Shield}}{49}{figure.35}
+\contentsline {figure}{\numberline {36}{\ignorespaces Comparativa de capacidad de memoria arduino}}{50}{figure.36}
+\contentsline {figure}{\numberline {37}{\ignorespaces Arduino Mega junto con Ethernet shield for arduino}}{50}{figure.37}
+\contentsline {figure}{\numberline {38}{\ignorespaces Se\IeC {\~n}al diferencial y se\IeC {\~n}al single ended}}{51}{figure.38}
+\contentsline {figure}{\numberline {39}{\ignorespaces ADC ADS1115}}{51}{figure.39}
+\contentsline {figure}{\numberline {40}{\ignorespaces Aplicaci\IeC {\'o}n bajo entorno MyOpenLab}}{52}{figure.40}
+\contentsline {figure}{\numberline {41}{\ignorespaces Logo Csharp y Microsoft NET}}{53}{figure.41}
+\contentsline {figure}{\numberline {42}{\ignorespaces Diagrama de bloques del proyecto}}{54}{figure.42}
+\contentsline {figure}{\numberline {43}{\ignorespaces Tabla de par\IeC {\'a}metros resumida}}{55}{figure.43}
+\contentsline {figure}{\numberline {44}{\ignorespaces Descripci\IeC {\'o}n de par\IeC {\'a}metro detallada}}{56}{figure.44}
+\contentsline {figure}{\numberline {45}{\ignorespaces Red Modbus TCP/IP }}{57}{figure.45}
+\contentsline {figure}{\numberline {46}{\ignorespaces Trama de comunicaci\IeC {\'o}n modbus TCP/IP }}{57}{figure.46}
+\contentsline {figure}{\numberline {47}{\ignorespaces C\IeC {\'o}digos de funciones para Modbus TCP/IP }}{58}{figure.47}
+\contentsline {figure}{\numberline {48}{\ignorespaces IPs establecidas para el proyecto }}{59}{figure.48}
+\contentsline {figure}{\numberline {49}{\ignorespaces Red local para realizar prueba de comunicaci\IeC {\'o}n}}{59}{figure.49}
+\contentsline {figure}{\numberline {50}{\ignorespaces Respuesta al Ping por parte de servodrive}}{60}{figure.50}
+\contentsline {figure}{\numberline {51}{\ignorespaces Configuraci\IeC {\'o}n para leer DIN MODE}}{60}{figure.51}
+\contentsline {figure}{\numberline {52}{\ignorespaces Respuesta al leer registro 122 DIN MODE}}{61}{figure.52}
+\contentsline {figure}{\numberline {53}{\ignorespaces Tr\IeC {\'a}fico de comunicaci\IeC {\'o}n}}{61}{figure.53}
+\contentsline {figure}{\numberline {54}{\ignorespaces Configuraci\IeC {\'o}n para escritura de registro}}{62}{figure.54}
+\contentsline {figure}{\numberline {55}{\ignorespaces Tr\IeC {\'a}fico de datos en Modbus Poll}}{62}{figure.55}
+\contentsline {figure}{\numberline {56}{\ignorespaces Tr\IeC {\'a}fico de datos mediante WireShark}}{63}{figure.56}
+\contentsline {figure}{\numberline {57}{\ignorespaces Registros de memoria para la configuraci\IeC {\'o}n del movimiento}}{64}{figure.57}
+\contentsline {figure}{\numberline {58}{\ignorespaces Trama dise\IeC {\~n}ada para el env\IeC {\'\i }o de paquete de configuraci\IeC {\'o}n}}{64}{figure.58}
+\contentsline {figure}{\numberline {59}{\ignorespaces Registros servodrive para monitereo en GUI}}{64}{figure.59}
+\contentsline {figure}{\numberline {60}{\ignorespaces Trama de datos para monitorear en GUI}}{65}{figure.60}
+\contentsline {figure}{\numberline {61}{\ignorespaces Registros de control de movimiento y habilitaci\IeC {\'o}n}}{65}{figure.61}
+\contentsline {figure}{\numberline {62}{\ignorespaces Funciones Modbus que soporta librer\IeC {\'\i }a}}{66}{figure.62}
+\contentsline {figure}{\numberline {63}{\ignorespaces Leer registro 1055 (DRV.HWNABLE)}}{66}{figure.63}
+\contentsline {figure}{\numberline {64}{\ignorespaces Escribir en registro 758 (SM.V1)}}{66}{figure.64}
+\contentsline {figure}{\numberline {65}{\ignorespaces Diagrama de red implementada para el proyecto}}{67}{figure.65}
+\contentsline {figure}{\numberline {66}{\ignorespaces Parte del c\IeC {\'o}digo de control para lectura de registros Servodrive }}{67}{figure.66}
+\contentsline {figure}{\numberline {67}{\ignorespaces Parte del c\IeC {\'o}digo de la escritura de registros servodrive }}{68}{figure.67}
+\contentsline {figure}{\numberline {68}{\ignorespaces Bloque de c\IeC {\'o}digo optmizado para lectura de registro modbus}}{69}{figure.68}
+\contentsline {figure}{\numberline {69}{\ignorespaces Parte del c\IeC {\'o}digo del encoder Futek para obtener dato de velocidad}}{70}{figure.69}
+\contentsline {figure}{\numberline {70}{\ignorespaces Registros del microcontrolador AtMega2560 para interrupciones}}{71}{figure.70}
+\contentsline {figure}{\numberline {71}{\ignorespaces Conexionado del m\IeC {\'o}dulo ADS115}}{71}{figure.71}
+\contentsline {figure}{\numberline {72}{\ignorespaces Configuraci\IeC {\'o}n e inicializaci\IeC {\'o}n del m\IeC {\'o}dulo ADS1115}}{72}{figure.72}
+\contentsline {figure}{\numberline {73}{\ignorespaces Obtener lectura de la se\IeC {\~n}al anal\IeC {\'o}gica}}{72}{figure.73}
+\contentsline {figure}{\numberline {74}{\ignorespaces Filtro mediante software para estabilizar lecturas de se\IeC {\~n}al}}{72}{figure.74}
+\contentsline {figure}{\numberline {75}{\ignorespaces Tabla l\IeC {\'o}gica de control Freno Warner Electric}}{73}{figure.75}
+\contentsline {figure}{\numberline {76}{\ignorespaces Circuito de conversi\IeC {\'o}n nivel l\IeC {\'o}gico 5V - 12V}}{73}{figure.76}
+\contentsline {figure}{\numberline {77}{\ignorespaces Definici\IeC {\'o}n de salidas para Freno Warner Electric}}{74}{figure.77}
+\contentsline {figure}{\numberline {78}{\ignorespaces C\IeC {\'o}digo implementado para el Freno Warner Electric}}{74}{figure.78}
+\contentsline {figure}{\numberline {79}{\ignorespaces Primer GUI beta del proyecto de residencia}}{75}{figure.79}
+\contentsline {figure}{\numberline {80}{\ignorespaces Tecnolog\IeC {\'\i }as usadas para el control de versiones}}{76}{figure.80}
+\contentsline {figure}{\numberline {81}{\ignorespaces Icono de la aplicaci\IeC {\'o}n}}{77}{figure.81}
+\contentsline {figure}{\numberline {82}{\ignorespaces Pantalla principal de la aplicaci\IeC {\'o}n}}{77}{figure.82}
+\contentsline {figure}{\numberline {83}{\ignorespaces GUI se conect\IeC {\'o} satisfactoriamente con sistema de control}}{78}{figure.83}
+\contentsline {figure}{\numberline {84}{\ignorespaces GUI no logr\IeC {\'o} conectarse con el sistema de control}}{78}{figure.84}
+\contentsline {figure}{\numberline {85}{\ignorespaces Habilitaci\IeC {\'o}n de modos de operaci\IeC {\'o}n banco de pruebas}}{78}{figure.85}
+\contentsline {figure}{\numberline {86}{\ignorespaces Selecci\IeC {\'o}n de modo de prueba}}{79}{figure.86}
+\contentsline {figure}{\numberline {87}{\ignorespaces Carpeta general ``Datos pruebas'' en disco local C}}{79}{figure.87}
+\contentsline {figure}{\numberline {88}{\ignorespaces Carpeta de sesi\IeC {\'o}n}}{80}{figure.88}
+\contentsline {figure}{\numberline {89}{\ignorespaces Carpeta de sesi\IeC {\'o}n}}{80}{figure.89}
+\contentsline {figure}{\numberline {90}{\ignorespaces Ventana del modo motor}}{81}{figure.90}
+\contentsline {figure}{\numberline {91}{\ignorespaces Cambiar de modo el Freno Industrial Warner Electric}}{81}{figure.91}
+\contentsline {figure}{\numberline {92}{\ignorespaces Inicio de prueba modo motor}}{82}{figure.92}
+\contentsline {figure}{\numberline {93}{\ignorespaces Graficando valores de sensor Futek TRS605}}{83}{figure.93}
+\contentsline {figure}{\numberline {94}{\ignorespaces Aviso de exportaci\IeC {\'o}n de gr\IeC {\'a}ficas}}{84}{figure.94}
+\contentsline {figure}{\numberline {95}{\ignorespaces Ventana de registro de datos}}{84}{figure.95}
+\contentsline {figure}{\numberline {96}{\ignorespaces Exportaci\IeC {\'o}n de datos}}{85}{figure.96}
+\contentsline {figure}{\numberline {97}{\ignorespaces Datos de prueba almacenados en carpeta motor}}{85}{figure.97}
+\contentsline {figure}{\numberline {98}{\ignorespaces Salida no permitida cuando la prueba est\IeC {\'a} activa}}{86}{figure.98}
+\contentsline {figure}{\numberline {99}{\ignorespaces Prueba terminada}}{86}{figure.99}
+\contentsline {figure}{\numberline {100}{\ignorespaces Ventana principal modo generador}}{87}{figure.100}
+\contentsline {figure}{\numberline {101}{\ignorespaces Bloquear acceso a Monitor Modbus}}{87}{figure.101}
+\contentsline {figure}{\numberline {102}{\ignorespaces Par\IeC {\'a}metros guardados en text file}}{89}{figure.102}
+\contentsline {figure}{\numberline {103}{\ignorespaces Ventana para buscar el archivo txt file y cargar ajustes}}{90}{figure.103}
+\contentsline {figure}{\numberline {104}{\ignorespaces Ventana principal pesta\IeC {\~n}a ``Monitor Modbus'' }}{91}{figure.104}
+\contentsline {figure}{\numberline {105}{\ignorespaces Inicializaci\IeC {\'o}n de prueba }}{93}{figure.105}
+\contentsline {figure}{\numberline {106}{\ignorespaces Prueba despu\IeC {\'e}s de un margen de tiempo }}{93}{figure.106}
+\contentsline {figure}{\numberline {107}{\ignorespaces Campo manual deshabilitado mientras la prueba se encuentra activa}}{94}{figure.107}
+\contentsline {figure}{\numberline {108}{\ignorespaces Aviso de seguridad}}{95}{figure.108}
+\contentsline {figure}{\numberline {109}{\ignorespaces Tabla de registros de datos}}{95}{figure.109}
+\contentsline {figure}{\numberline {110}{\ignorespaces Notificaci\IeC {\'o}n de exportaci\IeC {\'o}n datos}}{96}{figure.110}
+\contentsline {figure}{\numberline {111}{\ignorespaces Notificaci\IeC {\'o}n de gr\IeC {\'a}ficas guardadas}}{96}{figure.111}
+\contentsline {figure}{\numberline {112}{\ignorespaces Datos guardados por el usuario almacenados en carpeta}}{97}{figure.112}
+\contentsline {figure}{\numberline {113}{\ignorespaces Datos almacenados en el archivo txt}}{97}{figure.113}
+\contentsline {figure}{\numberline {114}{\ignorespaces Servodrive Kollmorgen AKD}}{98}{figure.114}
+\contentsline {figure}{\numberline {115}{\ignorespaces Servomotor Kollmorgen}}{98}{figure.115}
+\contentsline {figure}{\numberline {116}{\ignorespaces Sensor Futek TRS605}}{99}{figure.116}
+\contentsline {figure}{\numberline {117}{\ignorespaces Freno Industrial Warner Electric}}{99}{figure.117}
+\contentsline {figure}{\numberline {118}{\ignorespaces Driver del freno industrial Warner Electric}}{100}{figure.118}
+\contentsline {figure}{\numberline {119}{\ignorespaces Arduino Mega con Shield Ethernet W5100}}{100}{figure.119}
+\contentsline {figure}{\numberline {120}{\ignorespaces Red local ethernet TCP/IP}}{101}{figure.120}
+\contentsline {figure}{\numberline {121}{\ignorespaces Sistema de control}}{101}{figure.121}
+\contentsline {figure}{\numberline {122}{\ignorespaces Banco de pruebas vista frontal}}{102}{figure.122}
+\contentsline {figure}{\numberline {123}{\ignorespaces Banco de pruebas vista posterior}}{102}{figure.123}
+\contentsline {figure}{\numberline {124}{\ignorespaces Lugar del desarrollo del proyecto}}{103}{figure.124}
+\contentsline {figure}{\numberline {125}{\ignorespaces Pruebas directas en circuito}}{103}{figure.125}
